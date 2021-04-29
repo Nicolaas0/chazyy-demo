@@ -1,0 +1,16 @@
+{
+  "post": [
+    {
+      "username": "nicolaas",
+      "message": "Its my first chaze!",
+      "like": 1,
+      "id": 1
+    },
+    {
+      "username": "nadine",
+      "message": "This app is so awsome!",
+      "like": 5,
+      "id": 2
+    }
+  ]
+}

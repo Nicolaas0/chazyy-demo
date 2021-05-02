@@ -1,4 +1,6 @@
-const PosRes = () => {
+const PosRes = (prop) => {
+    const data = prop.val;
+    
     return (
         <div className='pos-res'>
             <div className='container'>

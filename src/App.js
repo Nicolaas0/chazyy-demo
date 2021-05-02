@@ -1,13 +1,15 @@
 import './index.css';
-import PosRes from './comp/PosRes';
+import Result from './comp/Result';
+import Navbar from './comp/Navbar';
 
 function App() {
   return (
     <div>
       <div className='nav'>
+        <Navbar/>
       </div>
       <div className='content'>
-        <PosRes/>
+        <Result/>
       </div>
     </div>
   );

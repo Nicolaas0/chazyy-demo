@@ -1,7 +1,5 @@
 import './index.css';
-import Navbar from './Navbar';
-import Post from './Post';
-import PosRes from './PosRes';
+import PosRes from './comp/PosRes';
 
 function App() {
   return (

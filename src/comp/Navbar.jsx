@@ -1,20 +1,39 @@
 import React from 'react';
-import './index.css'
+import styled from 'styled-components';
+import '../index.css'
 
 const Navbar = () => {
     return (
-        <div className='navbar'>
-            <div className="container">
-                <h2>Logo</h2>
-                <input type="text" placeholder='Search'/>
-                <div className="nav-list">
+        <Nav>
+                <Logo>Logo</Logo>
+                <Search/>
+                <NavList>
                     <a href="">Home</a>
                     <a href="">About</a>
                     <a href="">Contact</a>
-                </div>
-            </div>
-        </div>
+                </NavList>
+        </Nav>
     );
 }
- 
+
+const Logo = styled.h2`
+    margin:0;
+`
+
+const Search = styled.input`
+
+`
+
+const NavList = styled.ul`
+    text-decoration:none;
+`
+
+const Nav = styled.header`
+    margin:0;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    align-items:center;
+`
+
 export default Navbar;

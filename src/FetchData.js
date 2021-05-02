@@ -1,37 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const FetchData = () => {
+const FetchData = (url) => {
     const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
 
-        const abort = new AbortController();
-
-        fetch({url, signal: abort.signal})
+        fetch(url)
             .then((res) => {
-                if (!res.ok) {
-                    throw Error('Error fetching data');
-                }
-                return res.json;
+                return res.json();
             })
             .then((data) => {
                 setData(data);
-                setLoading(false);
-                setError(null);
+                console.log('Data ready!');
             })
-            .catch(() => {
-                if (err.name === 'AbortError') {
-                    console.log('Fetch Abort');
-                }
-                setLoading(false);
-                setError(err.message);
-            })
-        
-        return () => abort.abort();
     }, [url]);
-    return { data, loading, error };
+    return { data};
 }
  
 export default FetchData;

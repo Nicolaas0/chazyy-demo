@@ -1,5 +1,4 @@
 import './index.css';
-import Result from './comp/Result';
 import Navbar from './comp/Navbar';
 
 function App() {
@@ -9,7 +8,6 @@ function App() {
         <Navbar/>
       </div>
       <div className='content'>
-        <Result/>
       </div>
     </div>
   );

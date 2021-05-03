@@ -1,5 +1,6 @@
 import './index.css';
 import Navbar from './comp/Navbar';
+import Post from './comp/Post';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         <Navbar/>
       </div>
       <div className='content'>
+        <Post/>
       </div>
     </div>
   );

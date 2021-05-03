@@ -29,8 +29,8 @@ const Search = styled.input`
     padding:0.25rem;
     width:15%;
     margin:0;
-    
-        &:focus::placeholder{
+
+    &:focus::placeholder{
         color:transparent;
     }
 `
@@ -57,7 +57,8 @@ const Nav = styled.header`
     flex-direction:row;
     justify-content:space-around;
     align-items:center;
-    border-bottom:0.3rem solid ${props=> props.theme.mainYellow};
+    border-bottom:0.3rem solid ${props => props.theme.mainYellow};
+    
 `
 
 export default Navbar;

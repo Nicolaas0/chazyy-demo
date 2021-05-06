@@ -5,7 +5,7 @@ const Post = () => {
 
   const [ username, setUsername ] = useState('');
   const [ message, setMessage ] = useState('');
-  const [ pending, setIsPending ] = useState(false);
+  const [pending, setIsPending] = useState(false);
 
   const fixUname = (name) => {
     return '@'+ name
@@ -25,6 +25,8 @@ const Post = () => {
       body: JSON.stringify(v),
     }).then(() => {
       setIsPending(false);
+      setMessage('');
+      setUsername('');
     });
   };
 

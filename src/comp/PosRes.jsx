@@ -4,14 +4,15 @@ import '../index.css'
 
 const PosRes = (prop) => {
 
+    
     const data = prop.val;
 
     return (
             <Container>
-                {
+            {
                 data.map((d) => (
 
-                        <DataPrev key={d.id}>
+                    <DataPrev key={d.id}>
                             <Username>{d.username}</Username>
                             <Message className="message">{d.message}</Message>
                         </DataPrev>
@@ -28,6 +29,12 @@ const DataPrev = styled.div`
     padding:0.5rem;
     margin:1rem 1.5rem;
     border:0.35rem ${props => props.theme.mainBlue} solid;
+    cursor:pointer;
+    transition:0.5s;
+
+    &:hover{
+        background-color:${props => props.theme.warningRed};
+    }
 `
 
 const Username = styled.div`

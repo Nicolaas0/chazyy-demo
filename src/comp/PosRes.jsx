@@ -4,7 +4,6 @@ import '../index.css'
 
 const PosRes = (prop) => {
 
-    
     const data = prop.val;
 
     return (

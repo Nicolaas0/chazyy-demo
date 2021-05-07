@@ -1,5 +1,14 @@
 {
   "post": [
-
+    {
+      "username": "@Nicolaas",
+      "message": "Huhuhu~",
+      "id": 1
+    },
+    {
+      "username": "@asdasd",
+      "message": "asdasd",
+      "id": 2
+    }
   ]
 }

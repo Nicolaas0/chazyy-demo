@@ -3,6 +3,7 @@ import Navbar from './comp/Navbar';
 import Post from './comp/Post';
 import Result from './comp/Result';
 import styled from 'styled-components';
+import Profile from './comp/Profile';
 
 function App() {
   return (
@@ -11,7 +12,10 @@ function App() {
         <Navbar/>
       </Nav>
       <Content>
-        <Post />
+        <LeftSide>
+          <Post />
+          <Profile/>
+          </LeftSide>
         <Result/>
       </Content>
     </Container>
@@ -32,6 +36,11 @@ const Content = styled.div`
   flex-direction:row;
   justify-content:space-around;
   margin-top:1rem;
+`
+
+const LeftSide = styled.div`
+  display:flex;
+  flex-direction:column;
 `
 
 export default App;

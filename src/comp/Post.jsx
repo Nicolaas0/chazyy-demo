@@ -67,6 +67,7 @@ const Container = styled.div`
   flex-direction:column;
   justify-content:space-evenly;
   align-items:center;
+  margin-bottom:1rem;
 `
 
 const Label = styled.label`

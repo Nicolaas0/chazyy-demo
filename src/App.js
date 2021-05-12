@@ -23,7 +23,6 @@ function App() {
 }
 
 const Container = styled.div`
-  @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
   display:flex;
   flex-direction:column;
 `

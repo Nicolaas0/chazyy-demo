@@ -46,7 +46,7 @@ const TwitterLogo = styled.img`
 `
 
 const Opening = styled.div`
-
+    
 `
 
 const Desc = styled.p`

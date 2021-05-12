@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { render } from 'react-dom';
 import styled from 'styled-components';
 import '../index.css'
 
@@ -6,8 +7,18 @@ const PosRes = (prop) => {
 
     const data = prop.val;
 
+    useEffect(() => {
+        
+    })
+    const handleDelete = () => {
+        data.map((d) => {
+            fetch('http://localhost:8000/post/' + d.id, { method: 'DELETE' })
+        })
+        
+    }
+
     return (
-            <Container>
+            <Container onClick={handleDelete}>
             {
                 data.map((d) => (
 

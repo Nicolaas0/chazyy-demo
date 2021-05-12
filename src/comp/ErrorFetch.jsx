@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import Result from '../comp/Result';
 
 const ErrorFetch = (props) => {
 
     const mess = props.err;
     
     const handleReload = () => {
-        const url = 'http://localhost:3000/';
+        const url = Result;
         window.location.href = url;
     }
 

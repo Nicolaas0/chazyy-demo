@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 const FetchData = (url) => {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
+    const [useNull, setNull] = useState(false);
 
     useEffect(() => {
 
@@ -15,10 +16,18 @@ const FetchData = (url) => {
                 }
                 return res.json();
             })
-            .then((data) => {
-                setData(data);
-                console.log('Data ready!');
-                setError(null);
+                .then((data) => {
+                    if (data.length !== 0) {
+                    setData(data);
+                    console.log('Data ready!');
+                    setError(null);
+                    console.log(data);
+                    } else {
+                        setData(null);
+                        setNull(true);
+                        setError(null);
+                        console.log('Data is unavailable');
+                    }
             })
                 .catch((err) => {
                     if (err.name === 'AbortError') {
@@ -28,8 +37,8 @@ const FetchData = (url) => {
                     }
                 })
     return () => abortCont.abort();
-    });
-    return {data,error};
+    },[data,url]);
+    return {data,error,useNull};
 }
  
 export default FetchData;

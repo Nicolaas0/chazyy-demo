@@ -12,17 +12,18 @@ const PosRes = (prop) => {
     })
     const handleDelete = () => {
         data.map((d) => {
-            fetch('http://localhost:8000/post/' + d.id, { method: 'DELETE' })
-        })
+            console.log(d);
+            }
+        )
         
     }
 
     return (
-            <Container onClick={handleDelete}>
+            <Container>
             {
                 data.map((d) => (
 
-                    <DataPrev key={d.id}>
+                    <DataPrev key={d.id} onClick={handleDelete}>
                             <Username>{d.username}</Username>
                             <Message className="message">{d.message}</Message>
                         </DataPrev>

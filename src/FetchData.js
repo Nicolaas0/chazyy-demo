@@ -19,7 +19,6 @@ const FetchData = (url) => {
                 .then((data) => {
                     if (data.length !== 0) {
                     setData(data);
-                    console.log('Data ready!');
                     setError(null);
                     console.log(data);
                     } else {

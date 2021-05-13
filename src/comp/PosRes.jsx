@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { render } from 'react-dom';
+import React from 'react';
 import styled from 'styled-components';
 import '../index.css'
 
@@ -7,15 +6,11 @@ const PosRes = (prop) => {
 
     const data = prop.val;
 
-    useEffect(() => {
-        
-    })
     const handleDelete = () => {
         data.map((d) => {
             console.log(d);
             }
         )
-        
     }
 
     return (
@@ -25,7 +20,8 @@ const PosRes = (prop) => {
 
                     <DataPrev key={d.id} onClick={handleDelete}>
                             <Username>{d.username}</Username>
-                            <Message className="message">{d.message}</Message>
+                        <Message className="message">{d.message}</Message>
+                        <Date>{d.date}</Date>
                         </DataPrev>
     ))
                 }
@@ -48,6 +44,10 @@ const DataPrev = styled.div`
     }
 `
 
+
+const Date = styled.div`
+    
+`
 const Username = styled.div`
     color:blue;
     font-size:0.8rem;

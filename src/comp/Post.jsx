@@ -6,6 +6,7 @@ const Post = () => {
   const [ username, setUsername ] = useState('');
   const [ message, setMessage ] = useState('');
   const [pending, setIsPending] = useState(false);
+  const [date, setDate] = useState('');
 
   const fixUname = (name) => {
     return '@'+ name
@@ -13,7 +14,11 @@ const Post = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let v = { username, message};
+    setDate(() => {
+      const now = new Date();
+      date(now,'')
+    });
+    let v = { username, message, date};
     const un = fixUname(v.username);
     v.username = un;
 

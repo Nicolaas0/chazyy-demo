@@ -1,9 +1,24 @@
 {
   "post": [
     {
-      "username": "@sadasdasd",
-      "message": "asdasdasd",
+      "username": "@asdasdas",
+      "message": "asdasdasdas",
       "id": 1
+    },
+    {
+      "username": "@adasd",
+      "message": "asdasdasd",
+      "id": 2
+    },
+    {
+      "username": "@asdasdasd",
+      "message": "asdasdsadasd",
+      "id": 3
+    },
+    {
+      "username": "@asdasdasdasd",
+      "message": "asdasdasdasd",
+      "id": 4
     }
   ]
 }

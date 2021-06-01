@@ -21,7 +21,6 @@ const PosRes = (prop) => {
                     <DataPrev key={d.id} onClick={handleDelete}>
                             <Username>{d.username}</Username>
                         <Message className="message">{d.message}</Message>
-                        <Dates>{d.date}</Dates>
                         </DataPrev>
     ))
                 }

@@ -20,7 +20,6 @@ const FetchData = (url) => {
                     if (data.length !== 0) {
                     setData(data);
                     setError(null);
-                    console.log(data);
                     } else {
                         setData(null);
                         setNull(true);

@@ -5,33 +5,37 @@ const Post = () => {
   const [username, setUsername] = useState("");
   const [message, setMessage] = useState("");
   const [pending, setIsPending] = useState(false);
-  const [date, setDate] = useState("");
+  const [unameErr, setUnameErr] = useState(false);
 
   const fixUname = (name) => {
-    return "@" + name;
+    if (name.includes(" ")) {
+      return null;
+    } else {
+      return "@" + name;
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setDate(() => {
-      const now = new Date();
-      date(now, "");
-    });
-    let v = { username, message, date };
+    let v = { username, message };
     const un = fixUname(v.username);
-    v.username = un;
+    if (un === null) {
+      setUnameErr(true);
+    } else {
+      v.username = un;
+      setIsPending(true);
+      setUnameErr(false);
 
-    setIsPending(true);
-
-    fetch("http://localhost:8000/post", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(v),
-    }).then(() => {
-      setIsPending(false);
-      setMessage("");
-      setUsername("");
-    });
+      fetch("http://localhost:8000/post", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(v),
+      }).then(() => {
+        setIsPending(false);
+        setMessage("");
+        setUsername("");
+      });
+    }
   };
 
   useEffect(() => {
@@ -61,6 +65,8 @@ const Post = () => {
             onChange={(e) => setMessage(e.target.value)}
           />
         </Block>
+        {unameErr && <div>Dont use space in Username!</div>}
+        {!unameErr && ''}
         {!pending && <Button>Post</Button>}
         {pending && <Button>Adding</Button>}
       </form>

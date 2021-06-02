@@ -11,13 +11,6 @@ function App() {
       <Nav>
         <Navbar/>
       </Nav>
-      <Content>
-        <LeftSide>
-          <Post />
-          <Profile/>
-          </LeftSide>
-        <Result/>
-      </Content>
     </Container>
   );
 }

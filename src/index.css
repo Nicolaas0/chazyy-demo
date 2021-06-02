@@ -1,3 +1,5 @@
+ @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600&display=swap');
+
 *{
     font-family: Cascadia Mono;
     outline:none;
@@ -5,3 +7,6 @@
     scrollbar-color: rgb(170, 170, 170) rgb(255, 255, 255);
 }
 
+body{
+    background-color: #2a2a2a;
+}

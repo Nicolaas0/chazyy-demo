@@ -35,7 +35,7 @@ const Search = styled.input`
   color:${props=>props.theme.fontCol};
   font-family:Archivo;
   letter-spacing:0.04rem;
-  background-color: ${(props) => props.theme.utilBlack};
+  background-color: ${(props) => props.theme.utilBlack};  
   border-radius: 1rem;
   font-size: 0.9rem;
   padding: 0.3rem;

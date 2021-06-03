@@ -11,6 +11,11 @@ function App() {
       <Nav>
         <Navbar/>
       </Nav>
+      <Content>
+        <Second>
+          <Result/> 
+        </Second>
+      </Content>
     </Container>
   );
 }
@@ -29,6 +34,13 @@ const Content = styled.div`
   flex-direction:row;
   justify-content:space-around;
   margin-top:1rem;
+`
+
+const Second = styled.div`
+  display:flex;
+  flex-direction:column;
+  justify-content:start;
+  align-items:center;
 `
 
 const LeftSide = styled.div`

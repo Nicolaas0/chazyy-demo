@@ -55,7 +55,6 @@ const Post = () => {
           />
         </Block>
         <Block>
-          <Label>Message</Label>
           <TextArea
             type="text"
             rows="5"
@@ -75,10 +74,11 @@ const Post = () => {
 };
 
 const Container = styled.div`
-  width: 30rem;
-  height: 17rem;
-  border: 0.35rem ${(props) => props.theme.mainYellow} solid;
+  width: 27rem;
+  height: 14rem;
+  border-radius:1rem;
   position: relative;
+  background-color:${props=>props.theme.lghtBgColor};
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -88,39 +88,59 @@ const Container = styled.div`
 
 const Label = styled.label`
   margin-right: 0.5rem;
+  color:${props=>props.theme.fontCol};
 `;
 
 const Block = styled.div`
   display: block;
+  margin-bottom:0.5rem;
 `;
 
 const Input = styled.input`
-  border: 0.25rem ${(props) => props.theme.mainBlue} solid;
+  background-color: ${(props) => props.theme.lghtUtilBlack};
+  font-family:Archivo;
+  border: none;
+  border-radius: 1rem;
   transition: 0.3s;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  padding: 0.35rem;
+  transition: 0.1s;
+  color: ${(props) => props.theme.fontCol};
 
   &:focus {
-    padding: 0.3rem;
+    border: 0.2rem solid ${(props) => props.theme.themeColor};
   }
 `;
 
 const Button = styled.button`
-  background-color: transparent;
-  border: 0.25rem ${(props) => props.theme.mainBlue} solid;
+  border: none;
+  background-color: ${(props) => props.theme.lghtUtilBlack};
   padding: 0.2rem 0.5rem;
   transition: 0.5s;
   cursor: pointer;
   width: 5rem;
+  transition: 0.1s;
 
   &:hover {
     width: 6rem;
+    border: 0.18rem solid ${(props) => props.theme.themeColor};
+    color: ${(props) => props.theme.themeColor};
   }
 `;
 
 const TextArea = styled.textarea`
+  background-color: ${(props) => props.theme.lghtUtilBlack};
+  color:${props => props.theme.fontCol};
+  font-family:Archivo;
   margin: 0.5rem 0;
   display: block;
-  border: 0.25rem ${(props) => props.theme.mainBlue} solid;
+  border: none;
+  transition:0.1s;
+  border-radius:0.3rem;
+
+  &:focus {
+    border: 0.18rem solid ${(props) => props.theme.themeColor};
+  }
 `;
 
 export default Post;

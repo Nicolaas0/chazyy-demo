@@ -137,6 +137,7 @@ const TextArea = styled.textarea`
   border: none;
   transition:0.1s;
   border-radius:0.3rem;
+  resize:none;
 
   &:focus {
     border: 0.18rem solid ${(props) => props.theme.themeColor};

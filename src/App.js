@@ -13,7 +13,8 @@ function App() {
       </Nav>
       <Content>
         <Second>
-          <Result/> 
+          <Result />
+          <Post/>
         </Second>
       </Content>
     </Container>

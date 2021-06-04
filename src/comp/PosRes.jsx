@@ -28,16 +28,12 @@ const DataPrev = styled.div`
   border-radius: 1rem;
   background-color: ${(props) => props.theme.lghtBgColor};
   cursor: pointer;
-  transition: 0.5s;
-
-  &:hover {
-    background-color: ${(props) => props.theme.warningRed};
-  }
 `;
 
-const Dates = styled.div``;
 const Username = styled.div`
-  color: blue;
+  color: ${props => props.theme.themeColor};
+  font-family:Archivo;
+  letter-spacing:0.06rem;
   font-size: 0.8rem;
   margin-left: 0.5rem;
   font-size: 0.8rem;
@@ -46,6 +42,9 @@ const Username = styled.div`
 
 const Message = styled.p`
   margin: 0.5rem 0;
+  color:${props => props.theme.fontCol};
+  font-family:Archivo;
+  letter-spacing:0.05rem;
   padding: 0;
   text-align: center;
 `;
@@ -68,6 +67,11 @@ const Container = styled.div`
   overflow-y: scroll;
   overflow-x: none;
   scroll-behavior: smooth;
+  transition: 0.5s;
+
+  &:hover {
+    border: 0.17rem ${(props) => props.theme.themeColor} solid;
+  }
 `;
 
 export default PosRes;

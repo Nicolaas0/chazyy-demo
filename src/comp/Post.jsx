@@ -88,7 +88,8 @@ const Container = styled.div`
 
 const Label = styled.label`
   margin-right: 0.5rem;
-  color:${props=>props.theme.fontCol};
+  font-family:Archivo;
+  color:${props=>props.theme.themeColor};
 `;
 
 const Block = styled.div`
@@ -98,7 +99,7 @@ const Block = styled.div`
 
 const Input = styled.input`
   background-color: ${(props) => props.theme.lghtUtilBlack};
-  font-family:Archivo;
+  font-family: Archivo;
   border: none;
   border-radius: 1rem;
   transition: 0.3s;
@@ -114,8 +115,10 @@ const Input = styled.input`
 
 const Button = styled.button`
   border: none;
+  padding:0.2rem 0;
   background-color: ${(props) => props.theme.lghtUtilBlack};
-  padding: 0.2rem 0.5rem;
+  color:${props => props.theme.utilCol}}}
+  dding: 0.2rem 0.5rem;
   transition: 0.5s;
   cursor: pointer;
   width: 5rem;

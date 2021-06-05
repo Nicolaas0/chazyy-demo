@@ -8,7 +8,7 @@ const Post = () => {
   const [unameErr, setUnameErr] = useState(false);
 
   const fixUname = (name) => {
-    if (name.includes(" ")) {
+    if (name.includes(" ") && name.length > 15) {
       return null;
     } else {
       return "@" + name;
@@ -64,7 +64,7 @@ const Post = () => {
             onChange={(e) => setMessage(e.target.value)}
           />
         </Block>
-        {unameErr && <div>Dont use space in Username!</div>}
+        {unameErr && <Warn>Dont use space in Username!</Warn>}
         {!unameErr && ''}
         {!pending && <Button>Post</Button>}
         {pending && <Button>Adding</Button>}
@@ -146,5 +146,11 @@ const TextArea = styled.textarea`
     border: 0.18rem solid ${(props) => props.theme.themeColor};
   }
 `;
+
+const Warn = styled.div`
+  font-family:Archivo;
+  color: ${props => props.theme.utilCol};
+  margin-bottom:0.4rem;
+`
 
 export default Post;

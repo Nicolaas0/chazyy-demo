@@ -27,7 +27,6 @@ const DataPrev = styled.div`
   margin: 1rem 1.5rem;
   border-radius: 1rem;
   background-color: ${(props) => props.theme.lghtBgColor};
-  cursor: pointer;
 `;
 
 const Username = styled.div`
@@ -47,11 +46,6 @@ const Message = styled.p`
   letter-spacing:0.05rem;
   padding: 0;
   text-align: center;
-`;
-
-const Like = styled.div`
-  margin: 0.5rem 0;
-  font-size: 0.7rem;
 `;
 
 const Container = styled.div`

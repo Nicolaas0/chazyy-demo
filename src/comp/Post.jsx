@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Post = () => {
   const [username, setUsername] = useState("");
   const [message, setMessage] = useState("");
-  const [pending, setIsPending] = useState(false);
+  const [pending, setIsPending] = useState(false);         
   const [unameErr, setUnameErr] = useState(false);
 
   const fixUname = (name) => {
@@ -100,7 +100,7 @@ const Block = styled.div`
 const Input = styled.input`
   background-color: ${(props) => props.theme.lghtUtilBlack};
   font-family: Archivo;
-  border: none;
+  border: 0.2rem solid ${(props) => props.theme.bgColor};
   border-radius: 1rem;
   transition: 0.3s;
   font-size: 1rem;
@@ -114,10 +114,10 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  border: none;
+    border: 0.18rem solid ${(props) => props.theme.bgColor};
   padding:0.2rem 0;
   background-color: ${(props) => props.theme.lghtUtilBlack};
-  color:${props => props.theme.utilCol}}}
+  color:${(props) => props.theme.utilCol}}}
   dding: 0.2rem 0.5rem;
   transition: 0.5s;
   cursor: pointer;
@@ -133,14 +133,14 @@ const Button = styled.button`
 
 const TextArea = styled.textarea`
   background-color: ${(props) => props.theme.lghtUtilBlack};
-  color:${props => props.theme.fontCol};
-  font-family:Archivo;
+  color: ${(props) => props.theme.fontCol};
+  border: 0.18rem solid ${(props) => props.theme.bgColor};
+  font-family: Archivo;
   margin: 0.5rem 0;
   display: block;
-  border: none;
-  transition:0.1s;
-  border-radius:0.3rem;
-  resize:none;
+  transition: 0.1s;
+  border-radius: 0.3rem;
+  resize: none;
 
   &:focus {
     border: 0.18rem solid ${(props) => props.theme.themeColor};

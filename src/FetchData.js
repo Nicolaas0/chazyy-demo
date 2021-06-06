@@ -4,6 +4,7 @@ const FetchData = (url) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [useNull, setNull] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const abortCont = new AbortController();
@@ -20,8 +21,10 @@ const FetchData = (url) => {
           const arr = [];
           arr.push(data);
           setData(arr[0].reverse());
+          setLoading(false);
           setError(null);
         } else {
+          setLoading(false);
           setData(null);
           setNull(true);
           setError(null);
@@ -37,7 +40,7 @@ const FetchData = (url) => {
       });
     return () => abortCont.abort();
   }, [data, url]);
-  return { data, error, useNull };
+  return { data, error, useNull, loading };
 };
 
 export default FetchData;

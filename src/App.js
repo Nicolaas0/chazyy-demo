@@ -4,6 +4,7 @@ import Post from './comp/Post';
 import Result from './comp/Result';
 import styled from 'styled-components';
 import Profile from './comp/Profile';
+import Loading from './comp/Loading';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       </Nav>
       <Content>
         <Second>
-          <Result />
+          <Result/>
           <Post/>
         </Second>
       </Content>

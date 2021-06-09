@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import firebase from "firebase";
 
 const FetchData = (url) => {
   const [data, setData] = useState(null);
@@ -35,12 +36,12 @@ const FetchData = (url) => {
         if (err.name === "AbortError") {
           console.log("Fetch Abort");
         } else {
-          setError(err.message);
+          setError("Network Error when attempting fetch the resource.");
+          setLoading(false)
         }
       });
     return () => abortCont.abort();
   }, [data, url]);
   return { data, error, useNull, loading };
-};
-
-export default FetchData;
+}
+  export default FetchData;

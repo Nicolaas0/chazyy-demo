@@ -2,53 +2,13 @@
   "post": [
     {
       "username": "@Nicolaas",
-      "message": "Hello there! My name is nicolaas.",
+      "message": "Halo",
       "id": 1
     },
     {
-      "username": "@Ashley",
-      "message": "Hello nicolaas, My name is Ashley! I hope we are going to be a great friends!",
+      "username": "@Nicolaas",
+      "message": "Halo yang kedua:)",
       "id": 2
-    },
-    {
-      "username": "@Anon",
-      "message": "Click here if you want to get 1000$!! >>getrich.com<<",
-      "id": 3
-    },
-    {
-      "username": "@Nicolaas",
-      "message": "Aku tidak suka mangga",
-      "id": 4
-    },
-    {
-      "username": "@Nadine",
-      "message": "Aku sayang sama IU",
-      "id": 5
-    },
-    {
-      "username": "@LIUXINJIJEIJIEWOAINI",
-      "message": "ni hao ma wo shi hillary, wo chiao mma shi suzanna he gege chiao nicolaas. LIU XIN JIE JIE YI DE AI MA!!!!!\n",
-      "id": 6
-    },
-    {
-      "username": "@Nicolaas",
-      "message": "Ganteng akuya",
-      "id": 7
-    },
-    {
-      "username": "@Likey",
-      "message": "Hi!",
-      "id": 8
-    },
-    {
-      "username": "@asdas",
-      "message": "asdas",
-      "id": 9
-    },
-    {
-      "username": "@radenmas_",
-      "message": "Aku Sayang Michelle",
-      "id": 10
     }
   ]
 }

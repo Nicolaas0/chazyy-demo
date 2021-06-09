@@ -3,23 +3,10 @@ import styled from "styled-components";
 import "../index.css";
 import love from "../assest/love.png";
 import reply from "../assest/reply.png";
-import { db } from "../Firebase";
+import firebase from 'firebase'
 
 const PosRes = (prop) => {
   const data = prop.val;
-  const [username, setUsername] = useState('');
-  const [mess, setMess] = useState('');
-
-  // useEffect(() => {
-
-  //   db.ref("Post").on('value', snapshot => {
-  //     let arr = [];
-  //     snapshot.forEach(snap => {
-  //       arr.push(snap.val())
-  //     })
-  //     console.log(arr);
-  //   })
-  // })
 
   return (
     <Container>

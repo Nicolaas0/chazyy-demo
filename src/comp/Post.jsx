@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import firebase from '../Firebase';
 
 const Post = () => {
   const [username, setUsername] = useState("");
@@ -16,25 +17,30 @@ const Post = () => {
   };
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
     let v = { username, message };
     const un = fixUname(v.username);
+
     if (un === null) {
       setUnameErr(true);
     } else {
       v.username = un;
+      
       setIsPending(true);
       setUnameErr(false);
 
-      fetch("http://localhost:8000/post", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(v),
-      }).then(() => {
-        setIsPending(false);
-        setMessage("");
-        setUsername("");
-      });
+      const ref = firebase.database().ref('Post');
+      const data = {
+        username: username,
+        message: message
+      };
+
+      ref.push(data);
+      
+      setIsPending(false);
+      setMessage("");
+      setUsername("");
     }
   };
 

@@ -49,7 +49,7 @@ const Item = styled.a`
   margin: 0 1rem;
   text-decoration: none;
   color: ${(props) => props.theme.utilCol};
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-family: Archivo;
   letter-spacing: 0.04rem;
 

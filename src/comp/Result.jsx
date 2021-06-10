@@ -6,7 +6,7 @@ import Loading from "./Loading";
 
 const Result = () => {
 
-    const { data,error,useNull, loading } = FetchData('http://localhost:8000/post');
+    const { data, error, useNull, loading } = FetchData('Post');
 
     return (
         <div>

@@ -7,57 +7,31 @@ const FetchData = (ep) => {
   const [useNull, setNull] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // const abortCont = new AbortController();
-
-    // fetch(url, { signal: abortCont.signal })
-    //   .then((res) => {
-    //     if (!res.ok) {
-    //       throw Error("Error Fetching Data");
-    //     }
-    //     return res.json();
-    //   })
-    //   .then((data) => {
-    //     if (data.length !== 0) {
-    //       const arr = [];
-    //       arr.push(data);
-    //       setData(arr[0].reverse());
-    //       setLoading(false);
-    //       setError(null);
-    //     } else {
-    //       setLoading(false);
-    //       setData(null);
-    //       setNull(true);
-    //       setError(null);
-    //       console.log("Data is unavailable");
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     if (err.name === "AbortError") {
-    //       console.log("Fetch Abort");
-    //     } else {
-    //       setError("Network Error when attempting fetch the resource.");
-    //       setLoading(false)
-    //     }
-    //   });
-    // return () => abortCont.abort();
+  const showData = (ep) => {
     const ref = firebase.database().ref(ep);
     ref.on("value", (snapshot) => {
-      const data = snapshot.val();
-      if (data === null) {
+      const res = snapshot.val();
+      const name = Object.getOwnPropertyNames(res);
+
+      if (res === null) {
         setError("Error fetching data");
         setLoading(false);
       } else {
         const datArr = [];
-        for (let id in data) {
-          datArr.push(data[id]);
-          setData(datArr.reverse());
-          setLoading(false);
-          console.log(datArr)
-        }
+        for (let i = 0; i < name.length; i++) {
+          const id = name[i];
+          datArr.push(res[id]);
+        } // add all the id to the array first until it finished the process, and then set the data equals to datArr
+        setData(datArr.reverse()); // if we didnt seperate the process it will only show 1 data per render
+        setLoading(false); // it took me 4 hours to realized it :(
+        console.log(datArr); // but atleast i finished it ! :)
       }
     });
-  }, [data, ep]);
+  };
+
+  useEffect(() => {
+    showData(ep);
+  }, [ep]); //remove the data from dependencies, its because the infinity loop for fetching the data
   return { data, error, useNull, loading };
 };
 export default FetchData;

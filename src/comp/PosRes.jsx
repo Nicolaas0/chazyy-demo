@@ -1,12 +1,12 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "../index.css";
 import love from "../assest/love.png";
 import reply from "../assest/reply.png";
-import firebase from 'firebase'
 
 const PosRes = (prop) => {
   const data = prop.val;
+  console.log(data);
 
   return (
     <Container>
@@ -73,20 +73,20 @@ const Container = styled.div`
   }
 `;
 
-  const IcCont = styled.div`
-    display:flex;
-    justify-content:space-evenly;
-    align-items:center;
-    margin-top:1rem;
-    margin-bottom:0.1rem;
-  `
+const IcCont = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 0.1rem;
+`;
 
 const Love = styled.img`
   width: auto;
-  cursor:pointer;
+  cursor: pointer;
 `;
 
 const Reply = styled.img`
-  cursor:pointer;
+  cursor: pointer;
 `;
 export default PosRes;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import firebase from '../Firebase';
+import moment from 'moment'
 
 const Post = () => {
   const [username, setUsername] = useState("");
@@ -30,13 +31,13 @@ const Post = () => {
       setIsPending(true);
       setUnameErr(false);
 
-      const ref = firebase.database().ref('Post');
+      const ref = firebase.database().ref('Demo').child(username).child(moment().format('MMMM Do YYYY, h:mm:ss a'));
       const data = {
         username: username,
         message: message
       };
 
-      ref.push(data);
+      ref.set(data);
       
       setIsPending(false);
       setMessage("");

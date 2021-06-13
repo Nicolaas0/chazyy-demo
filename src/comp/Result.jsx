@@ -3,10 +3,11 @@ import PosRes from "./PosRes";
 import ErrorFetch from "./ErrorFetch";
 import NullData from "./NullData";
 import Loading from "./Loading";
+import firebase from '../Firebase'
 
-const Result = () => {
-
-    const { data, error, useNull, loading } = FetchData('Post');
+const Result = () => { 
+    // const ref = firebase.database().ref('Demo/');
+    const { data, error, useNull, loading } = FetchData(`Demo`);
 
     return (
         <div>

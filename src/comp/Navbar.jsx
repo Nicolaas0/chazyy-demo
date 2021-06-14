@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import "../index.css";
+import { dev } from "../config/breakp";
 
 const Navbar = () => {
   return (
@@ -43,6 +44,10 @@ const Search = styled.input`
   &:focus::placeholder {
     color: transparent;
   }
+
+  @media ${dev.mobileL}{
+    display:none;
+  }
 `;
 
 const Item = styled.a`
@@ -57,6 +62,10 @@ const Item = styled.a`
     border-bottom: 0.2rem solid ${(props) => props.theme.themeColor};
     padding-bottom: 0.1rem;
   }
+
+  @media ${dev.mobileL} {
+    display: none;
+  }
 `;
 
 const NavList = styled.ul`
@@ -70,6 +79,10 @@ const Nav = styled.header`
   justify-content: space-around;
   align-items: center;
   // border-bottom:0.3rem solid ${(props) => props.theme.lghtBgColor};
+
+  @media ${dev.mobileL} {
+    justify-content:center
+  }
 `;
 
 const Join = styled.button`
@@ -84,6 +97,10 @@ const Join = styled.button`
   &:hover {
     background-color: ${(props) => props.theme.themeColor};
     color: ${(props) => props.theme.bgColor};
+  }
+
+  @media ${dev.mobileL} {
+    display: none;
   }
 `;
 

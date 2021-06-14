@@ -64,7 +64,6 @@ const Container = styled.div`
   background-color: ${(props) => props.theme.bgColor};
   height: 15rem;
   overflow-y: scroll;
-  overflow-x: none;
   scroll-behavior: smooth;
   transition: 0.5s;
 

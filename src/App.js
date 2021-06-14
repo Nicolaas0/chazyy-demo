@@ -25,6 +25,8 @@ function App() {
 const Container = styled.div`
   display:flex;
   flex-direction:column;
+  justify-content:center;
+  align-items:center;
 `
 
 const Nav = styled.div`
@@ -35,6 +37,7 @@ const Content = styled.div`
   display:flex;
   flex-direction:row;
   justify-content:space-around;
+  align-items:center;
   margin-top:1rem;
 `
 

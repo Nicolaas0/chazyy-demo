@@ -7,7 +7,7 @@ import firebase from '../Firebase'
 
 const Result = () => { 
     // const ref = firebase.database().ref('Demo/');
-    const { data, error, useNull, loading } = FetchData(`Demo`);
+    const { data, error, useNull, loading } = FetchData('Demo');
 
     return (
         <div>

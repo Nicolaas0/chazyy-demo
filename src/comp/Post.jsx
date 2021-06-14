@@ -8,6 +8,7 @@ const Post = () => {
   const [message, setMessage] = useState("");
   const [pending, setIsPending] = useState(false);         
   const [unameErr, setUnameErr] = useState(false);
+  const [date, setDate] = useState('');
 
   const fixUname = (name) => {
     if (name.includes(" ") && name.length > 15) {
@@ -20,7 +21,10 @@ const Post = () => {
   const handleSubmit = (e) => {
 
     e.preventDefault();
-    let v = { username, message };
+    const vd = moment().format("MMMM Do YYYY, h:mm:ss a");
+    setDate(vd);
+    console.log(vd)
+    let v = { username, message, date };
     const un = fixUname(v.username);
 
     if (un === null) {
@@ -31,13 +35,14 @@ const Post = () => {
       setIsPending(true);
       setUnameErr(false);
 
-      const ref = firebase.database().ref('Demo').child(username).child(moment().format('MMMM Do YYYY, h:mm:ss a'));
+      const ref = firebase.database().ref('Demo');
       const data = {
         username: username,
-        message: message
+        message: message,
+        date: date
       };
 
-      ref.set(data);
+      ref.push(data);
       
       setIsPending(false);
       setMessage("");

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import firebase from '../Firebase';
 import moment from 'moment'
+import {dev} from '../config/breakp'
 
 const Post = () => {
   const [username, setUsername] = useState("");
@@ -96,6 +97,10 @@ const Container = styled.div`
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 1rem;
+
+  @media ${dev.mobileL}{
+    width:20rem;
+  }
 `;
 
 const Label = styled.label`

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import "../index.css";
 import love from "../assest/love.png";
 import reply from "../assest/reply.png";
+import {dev} from '../config/breakp'
 
 const PosRes = (prop) => {
   const data = prop.val;
@@ -32,6 +33,10 @@ const DataPrev = styled.div`
   margin: 1rem 1.5rem;
   border-radius: 1rem;
   background-color: ${(props) => props.theme.lghtBgColor};
+
+  @media ${dev.mobileL} {
+    width: 20rem;
+  }
 `;
 
 const Username = styled.div`
@@ -69,6 +74,10 @@ const Container = styled.div`
 
   &:hover {
     border: 0.2rem ${(props) => props.theme.themeColor} solid;
+  }
+
+  @media ${dev.mobileL} {
+    width: 25rem;
   }
 `;
 

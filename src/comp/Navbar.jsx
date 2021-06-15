@@ -18,7 +18,7 @@ const Navbar = () => {
 };
 
 const Logo = styled.h2`
-  margin: 0;
+  font-size:1.5rem;
   cursor: pointer;
   color: ${(props) => props.theme.themeColor};
   padding: 0.2rem;
@@ -26,11 +26,14 @@ const Logo = styled.h2`
   &:hover {
     outline: solid 0.3rem ${(props) => props.theme.themeColor};
   }
+
+  @media ${dev.mobileL} {
+    margin: 0.5rem;
+  }
 `;
 
 const Search = styled.input`
   border: 0.25rem ${(props) => props.theme.utilBlack} solid;
-  padding: 0.25rem;
   width: 15%;
   margin: 0;
   color: ${(props) => props.theme.utilCol};
@@ -45,18 +48,22 @@ const Search = styled.input`
     color: transparent;
   }
 
-  @media ${dev.mobileL}{
-    display:none;
+  @media ${dev.mobileL} {
+    margin:0.5rem 0;
+    width:50%;
   }
 `;
 
 const Item = styled.a`
   margin: 0 1rem;
+  width:100%;
+  text-align:center;
   text-decoration: none;
   color: ${(props) => props.theme.utilCol};
   font-size: 1rem;
   font-family: Archivo;
   letter-spacing: 0.04rem;
+  padding: 0;
 
   &:hover {
     border-bottom: 0.2rem solid ${(props) => props.theme.themeColor};
@@ -64,16 +71,22 @@ const Item = styled.a`
   }
 
   @media ${dev.mobileL} {
-    display: none;
+    margin: 0.5rem 0; 
   }
 `;
 
 const NavList = styled.ul`
   text-decoration: none;
+
+  @media ${dev.mobileL} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Nav = styled.header`
-  margin: 0;
+  margin: 1rem 0;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -81,7 +94,9 @@ const Nav = styled.header`
   // border-bottom:0.3rem solid ${(props) => props.theme.lghtBgColor};
 
   @media ${dev.mobileL} {
-    justify-content:center
+    justify-content: center;
+    flex-direction:column;
+    align-items:center;
   }
 `;
 
@@ -100,7 +115,6 @@ const Join = styled.button`
   }
 
   @media ${dev.mobileL} {
-    display: none;
   }
 `;
 

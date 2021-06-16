@@ -37,6 +37,11 @@ const DataPrev = styled.div`
   @media ${dev.mobileL} {
     width: 20rem;
   }
+
+  @media ${dev.mobileM} {
+    width: 15rem;
+    font-size:75%;
+  }
 `;
 
 const Username = styled.div`
@@ -78,6 +83,10 @@ const Container = styled.div`
 
   @media ${dev.mobileL} {
     width: 25rem;
+  }
+
+  @media ${dev.mobileM}{
+    width:20rem;
   }
 `;
 

@@ -1,13 +1,27 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 import "../index.css";
+import menubar from "../assest/menu.png";
 import { dev } from "../config/breakp";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <Nav>
-      <Logo>Chazyy</Logo>
-      <Search placeholder="Search..." />
-      <NavList>
+      <Responsive>
+        <Logo>Chazyy</Logo>
+        <Menu
+          src={menubar}
+          onClick={() => {
+            setIsOpen(!isOpen);
+            console.log(isOpen);
+          }}
+        />
+      </Responsive>
+      {/* {isOpen ? null : <Search placeholder="Search..." />} */}
+      <NavList isOpen={isOpen}>
+        {/* {isOpen ? <Search placeholder="Search..." /> : null} */}
         <Item href="">Home</Item>
         <Item href="">About</Item>
         <Item href="">Contact</Item>
@@ -18,7 +32,7 @@ const Navbar = () => {
 };
 
 const Logo = styled.h2`
-  font-size:1.5rem;
+  font-size: 1.5rem;
   cursor: pointer;
   color: ${(props) => props.theme.themeColor};
   padding: 0.2rem;
@@ -27,7 +41,7 @@ const Logo = styled.h2`
     outline: solid 0.3rem ${(props) => props.theme.themeColor};
   }
 
-  @media ${dev.mobileL} {
+  @media ${dev.tablet} {
     margin: 0.5rem;
   }
 `;
@@ -48,16 +62,16 @@ const Search = styled.input`
     color: transparent;
   }
 
-  @media ${dev.mobileL} {
-    margin:0.5rem 0;
-    width:50%;
+  @media ${dev.tablet} {
+    margin: 0.5rem 0;
+    width: 50%;
   }
 `;
 
 const Item = styled.a`
   margin: 0 1rem;
-  width:100%;
-  text-align:center;
+  width: 100%;
+  text-align: center;
   text-decoration: none;
   color: ${(props) => props.theme.utilCol};
   font-size: 1rem;
@@ -70,18 +84,20 @@ const Item = styled.a`
     padding-bottom: 0.1rem;
   }
 
-  @media ${dev.mobileL} {
-    margin: 0.5rem 0; 
+  @media ${dev.tablet} {
+    margin: 0.5rem 0;
   }
 `;
 
 const NavList = styled.ul`
   text-decoration: none;
 
-  @media ${dev.mobileL} {
-    display: flex;
+  @media ${dev.tablet} {
+    width: 100%;
+    display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
     flex-direction: column;
     align-items: center;
+    transition: display 1s;
   }
 `;
 
@@ -93,10 +109,10 @@ const Nav = styled.header`
   align-items: center;
   // border-bottom:0.3rem solid ${(props) => props.theme.lghtBgColor};
 
-  @media ${dev.mobileL} {
+  @media ${dev.tablet} {
     justify-content: center;
-    flex-direction:column;
-    align-items:center;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -114,7 +130,30 @@ const Join = styled.button`
     color: ${(props) => props.theme.bgColor};
   }
 
-  @media ${dev.mobileL} {
+  @media ${dev.tablet} {
+  }
+`;
+
+const Menu = styled.img`
+width:25px;
+height:25px;
+
+  @media ${dev.tablet} {
+    display: relative;
+  }
+
+  @media (min-width: 769px) {
+    display: none;
+  }
+`;
+
+const Responsive = styled.div`
+  @media ${dev.tablet} {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
   }
 `;
 

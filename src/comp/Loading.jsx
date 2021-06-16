@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import {dev} from '../config/breakp'
 
 const Loading = () => {
   return (
@@ -16,7 +17,7 @@ const Container = styled.div`
   margin-bottom: 1rem;
   display: flex;
   width: 30rem;
-  justify-content:center;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
   border-radius: 1rem;
@@ -31,6 +32,14 @@ const Container = styled.div`
   &:hover {
     border: 0.17rem ${(props) => props.theme.themeColor} solid;
   }
+
+  @media ${dev.mobileL} {
+    width: 25rem;
+  }
+
+  @media ${dev.mobileM} {
+    width: 20rem;
+  }
 `;
 
 const DataPrev = styled.div`
@@ -41,6 +50,15 @@ const DataPrev = styled.div`
   margin: 1rem 1.5rem;
   border-radius: 1rem;
   background-color: ${(props) => props.theme.lghtBgColor};
+
+  @media ${dev.mobileL} {
+    width: 20rem;
+  }
+
+  @media ${dev.mobileM} {
+    width: 15rem;
+    font-size: 75%;
+  }
 `;
 
 const Username = styled.div`

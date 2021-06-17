@@ -3,8 +3,8 @@ import Navbar from './comp/Navbar';
 import Post from './comp/Post';
 import Result from './comp/Result';
 import styled from 'styled-components';
-import Profile from './comp/Profile';
-import Loading from './comp/Loading';
+// import Profile from './comp/Profile';
+// import Loading from './comp/Loading';
 
 function App() {
   return (
@@ -47,9 +47,9 @@ const Second = styled.div`
   align-items:center;
 `
 
-const LeftSide = styled.div`
-  display:flex;
-  flex-direction:column;
-`
+// const LeftSide = styled.div`
+//   display:flex;
+//   flex-direction:column;
+// `
 
 export default App;

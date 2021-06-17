@@ -1,24 +1,31 @@
-import React, { useEffect, useState } from "react";
+// import React, { useState } from "react";
 import styled from "styled-components";
 import "../index.css";
-import love from "../assest/love.png";
-import reply from "../assest/reply.png";
+// import love from "../assest/love.png";
+// import lovec from "../assest/loveclick.png";
+// import reply from "../assest/reply.png";
 import {dev} from '../config/breakp'
 
 const PosRes = (prop) => {
+  // const [click, setClick] = useState(false)
+
   const data = prop.val;
   console.log(data);
 
   return (
     <Container>
       {data.map((d) => (
-        <DataPrev key={d.id}>
+        <DataPrev key={d.uuid}>
           <Username>{d.username}</Username>
           <Message className="message">{d.message}</Message>
-          <IcCont>
-            <Love src={love}></Love>
+          {/* <IcCont>
+            {click ? <Love onClick={()=>{
+              setClick(!click)
+            }} src={lovec}></Love> : <Love onClick={()=>{
+              setClick(!click)
+            }} src={love}></Love>}
             <Reply src={reply}></Reply>
-          </IcCont>
+          </IcCont> */}
         </DataPrev>
       ))}
     </Container>
@@ -90,20 +97,20 @@ const Container = styled.div`
   }
 `;
 
-const IcCont = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-top: 1rem;
-  margin-bottom: 0.1rem;
-`;
+// const IcCont = styled.div`
+//   display: flex;
+//   justify-content: space-evenly;
+//   align-items: center;
+//   margin-top: 1rem;
+//   margin-bottom: 0.1rem;
+// `;
 
-const Love = styled.img`
-  width: auto;
-  cursor: pointer;
-`;
+// const Love = styled.img`
+//   width: auto;
+//   cursor: pointer;
+// `;
 
-const Reply = styled.img`
-  cursor: pointer;
-`;
+// const Reply = styled.img`
+//   cursor: pointer;
+// `;
 export default PosRes;

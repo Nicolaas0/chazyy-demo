@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import firebase from '../Firebase';
-import moment from 'moment'
-import {dev} from '../config/breakp'
+import firebase from "../Firebase";
+import moment from "moment";
+import { dev } from "../config/breakp";
+// import { v4 as uuidv4 } from "uuid";
 
 const Post = () => {
   const [username, setUsername] = useState("");
   const [message, setMessage] = useState("");
-  const [pending, setIsPending] = useState(false);         
+  const [pending, setIsPending] = useState(false);
   const [unameErr, setUnameErr] = useState(false);
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState("");
+  // const [uuid, setUuid] = useState("");
 
   const fixUname = (name) => {
     if (name.includes(" ") && name.length > 15) {
@@ -19,32 +21,43 @@ const Post = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  // const uuidGen = () => {
+  //   const i = setUuid(uuidv4());
+  //   return setUuid(i);
+  // };
 
-    e.preventDefault();
+  const dateGen = () => {
     const vd = moment().format("MMMM Do YYYY, h:mm:ss a");
-    setDate(vd);
-    console.log(vd)
-    let v = { username, message, date };
-    const un = fixUname(v.username);
+    return setDate(vd);
+  };
 
-    if (un === null) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // uuidGen();
+    dateGen();
+
+    const un = fixUname(username)
+
+    let v = { username, message, date};
+
+    if (v.username === null) {
       setUnameErr(true);
     } else {
       v.username = un;
-      
+
       setIsPending(true);
       setUnameErr(false);
 
-      const ref = firebase.database().ref('Demo');
+      const ref = firebase.database().ref("Demo");
       const data = {
         username: username,
         message: message,
-        date: date
+        date: date,
       };
 
       ref.push(data);
-      
+
       setIsPending(false);
       setMessage("");
       setUsername("");
@@ -78,7 +91,7 @@ const Post = () => {
           />
         </Block>
         {unameErr && <Warn>Dont use space in Username!</Warn>}
-        {!unameErr && ''}
+        {!unameErr && ""}
         {!pending && <Button>Post</Button>}
         {pending && <Button>Adding</Button>}
       </form>
@@ -89,29 +102,29 @@ const Post = () => {
 const Container = styled.div`
   width: 27rem;
   height: 14rem;
-  border-radius:1rem;
+  border-radius: 1rem;
   position: relative;
-  background-color:${props=>props.theme.lghtBgColor};
+  background-color: ${(props) => props.theme.lghtBgColor};
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 1rem;
 
-  @media ${dev.mobileL}{
-    width:20rem;
+  @media ${dev.mobileL} {
+    width: 20rem;
   }
 `;
 
 const Label = styled.label`
   margin-right: 0.5rem;
-  font-family:Archivo;
-  color:${props=>props.theme.themeColor};
+  font-family: Archivo;
+  color: ${(props) => props.theme.themeColor};
 `;
 
 const Block = styled.div`
   display: block;
-  margin-bottom:0.5rem;
+  margin-bottom: 0.5rem;
 `;
 
 const Input = styled.input`
@@ -165,9 +178,9 @@ const TextArea = styled.textarea`
 `;
 
 const Warn = styled.div`
-  font-family:Archivo;
-  color: ${props => props.theme.utilCol};
-  margin-bottom:0.4rem;
-`
+  font-family: Archivo;
+  color: ${(props) => props.theme.utilCol};
+  margin-bottom: 0.4rem;
+`;
 
 export default Post;

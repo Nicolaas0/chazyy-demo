@@ -19,14 +19,17 @@ const Navbar = () => {
           }}
         />
       </Responsive>
+
+          {/* FOR NEXT UPDATE! */}
+
       {/* {isOpen ? null : <Search placeholder="Search..." />} */}
-      <NavList isOpen={isOpen}>
-        {/* {isOpen ? <Search placeholder="Search..." /> : null} */}
+      {/* <NavList isOpen={isOpen}>
+        {isOpen ? <Search placeholder="Search..." /> : null}
         <Item href="">Home</Item>
         <Item href="">About</Item>
         <Item href="">Contact</Item>
         <Join href="">Join Now!</Join>
-      </NavList>
+      </NavList> */}
     </Nav>
   );
 };
@@ -46,60 +49,60 @@ const Logo = styled.h2`
   }
 `;
 
-const Search = styled.input`
-  border: 0.25rem ${(props) => props.theme.utilBlack} solid;
-  width: 15%;
-  margin: 0;
-  color: ${(props) => props.theme.utilCol};
-  font-family: Archivo;
-  letter-spacing: 0.04rem;
-  background-color: ${(props) => props.theme.utilBlack};
-  border-radius: 1rem;
-  font-size: 0.9rem;
-  padding: 0.3rem;
+// const Search = styled.input`
+//   border: 0.25rem ${(props) => props.theme.utilBlack} solid;
+//   width: 15%;
+//   margin: 0;
+//   color: ${(props) => props.theme.utilCol};
+//   font-family: Archivo;
+//   letter-spacing: 0.04rem;
+//   background-color: ${(props) => props.theme.utilBlack};
+//   border-radius: 1rem;
+//   font-size: 0.9rem;
+//   padding: 0.3rem;
 
-  &:focus::placeholder {
-    color: transparent;
-  }
+//   &:focus::placeholder {
+//     color: transparent;
+//   }
 
-  @media ${dev.tablet} {
-    margin: 0.5rem 0;
-    width: 50%;
-  }
-`;
+//   @media ${dev.tablet} {
+//     margin: 0.5rem 0;
+//     width: 50%;
+//   }
+// `;
 
-const Item = styled.a`
-  margin: 0 1rem;
-  width: 100%;
-  text-align: center;
-  text-decoration: none;
-  color: ${(props) => props.theme.utilCol};
-  font-size: 1rem;
-  font-family: Archivo;
-  letter-spacing: 0.04rem;
-  padding: 0;
+// const Item = styled.a`
+//   margin: 0 1rem;
+//   width: 100%;
+//   text-align: center;
+//   text-decoration: none;
+//   color: ${(props) => props.theme.utilCol};
+//   font-size: 1rem;
+//   font-family: Archivo;
+//   letter-spacing: 0.04rem;
+//   padding: 0;
 
-  &:hover {
-    border-bottom: 0.2rem solid ${(props) => props.theme.themeColor};
-    padding-bottom: 0.1rem;
-  }
+//   &:hover {
+//     border-bottom: 0.2rem solid ${(props) => props.theme.themeColor};
+//     padding-bottom: 0.1rem;
+//   }
 
-  @media ${dev.tablet} {
-    margin: 0.5rem 0;
-  }
-`;
+//   @media ${dev.tablet} {
+//     margin: 0.5rem 0;
+//   }
+// `;
 
-const NavList = styled.ul`
-  text-decoration: none;
+// const NavList = styled.ul`
+//   text-decoration: none;
 
-  @media ${dev.tablet} {
-    width: 100%;
-    display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
-    flex-direction: column;
-    align-items: center;
-    transition: display 1s;
-  }
-`;
+//   @media ${dev.tablet} {
+//     width: 100%;
+//     display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+//     flex-direction: column;
+//     align-items: center;
+//     transition: display 1s;
+//   }
+// `;
 
 const Nav = styled.header`
   margin: 1rem 0;
@@ -116,23 +119,23 @@ const Nav = styled.header`
   }
 `;
 
-const Join = styled.button`
-  margin: 0 0.5rem;
-  font-size: 1.2rem;
-  background-color: ${(props) => props.theme.bgColor};
-  padding: 0.25rem;
-  border: 0.2rem ${(props) => props.theme.themeColor} solid;
-  color: ${(props) => props.theme.themeColor};
-  cursor: pointer;
+// const Join = styled.button`
+//   margin: 0 0.5rem;
+//   font-size: 1.2rem;
+//   background-color: ${(props) => props.theme.bgColor};
+//   padding: 0.25rem;
+//   border: 0.2rem ${(props) => props.theme.themeColor} solid;
+//   color: ${(props) => props.theme.themeColor};
+//   cursor: pointer;
 
-  &:hover {
-    background-color: ${(props) => props.theme.themeColor};
-    color: ${(props) => props.theme.bgColor};
-  }
+//   &:hover {
+//     background-color: ${(props) => props.theme.themeColor};
+//     color: ${(props) => props.theme.bgColor};
+//   }
 
-  @media ${dev.tablet} {
-  }
-`;
+//   @media ${dev.tablet} {
+//   }
+// `;
 
 const Menu = styled.img`
 width:25px;

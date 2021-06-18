@@ -4,21 +4,36 @@ import "../index.css";
 // import love from "../assest/love.png";
 // import lovec from "../assest/loveclick.png";
 // import reply from "../assest/reply.png";
-import {dev} from '../config/breakp'
+import ScrollableFeed from 'react-scrollable-feed'
+import { dev } from "../config/breakp";
+import { useEffect } from "react";
 
 const PosRes = (prop) => {
   // const [click, setClick] = useState(false)
+
+  // const scrollToBottom = () => {
+  //   window.scrollTo({
+  //     bottom: 300,
+  //     behavior: "smooth",
+  //   });
+  // };
+
+  useEffect(() => {
+    // scrollToBottom()
+  },[])
 
   const data = prop.val;
   console.log(data);
 
   return (
     <Container>
-      {data.map((d) => (
-        <DataPrev key={d.uuid}>
-          <Username>{d.username}</Username>
-          <Message className="message">{d.message}</Message>
-          {/* <IcCont>
+      <ScrollableFeed>
+        {data.map((d) => (
+          <DataPrev key={d.uuid}>
+            <Username>{d.username}</Username>
+            <Message className="message">{d.message}</Message>
+
+            {/* <IcCont>
             {click ? <Love onClick={()=>{
               setClick(!click)
             }} src={lovec}></Love> : <Love onClick={()=>{
@@ -26,8 +41,9 @@ const PosRes = (prop) => {
             }} src={love}></Love>}
             <Reply src={reply}></Reply>
           </IcCont> */}
-        </DataPrev>
-      ))}
+          </DataPrev>
+        ))}
+      </ScrollableFeed>
     </Container>
   );
 };
@@ -47,7 +63,7 @@ const DataPrev = styled.div`
 
   @media ${dev.mobileM} {
     width: 15rem;
-    font-size:75%;
+    font-size: 75%;
   }
 `;
 
@@ -92,8 +108,8 @@ const Container = styled.div`
     width: 25rem;
   }
 
-  @media ${dev.mobileM}{
-    width:20rem;
+  @media ${dev.mobileM} {
+    width: 20rem;
   }
 `;
 

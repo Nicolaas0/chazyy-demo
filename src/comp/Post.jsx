@@ -118,7 +118,8 @@ const Container = styled.div`
 
 const Label = styled.label`
   margin-right: 0.5rem;
-  font-family: Archivo;
+  font-family: Mulish;
+  font-weight:600;
   color: ${(props) => props.theme.themeColor};
 `;
 
@@ -129,7 +130,8 @@ const Block = styled.div`
 
 const Input = styled.input`
   background-color: ${(props) => props.theme.lghtUtilBlack};
-  font-family: Archivo;
+  font-family: Mulish;
+  font-weight: 600;
   border: 0.2rem solid ${(props) => props.theme.bgColor};
   border-radius: 1rem;
   transition: 0.3s;

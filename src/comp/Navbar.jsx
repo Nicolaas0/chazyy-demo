@@ -34,8 +34,8 @@ const Navbar = () => {
   );
 };
 
-const Logo = styled.h2`
-  font-size: 1.5rem;
+const Logo = styled.h1`
+  font-size: 1.7rem;
   cursor: pointer;
   color: ${(props) => props.theme.themeColor};
   padding: 0.2rem;
@@ -143,6 +143,7 @@ height:25px;
 
   @media ${dev.tablet} {
     display: relative;
+    margin:0 0.5rem;
   }
 
   @media (min-width: 769px) {

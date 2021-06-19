@@ -69,7 +69,8 @@ const DataPrev = styled.div`
 
 const Username = styled.div`
   color: ${(props) => props.theme.themeColor};
-  font-family: Archivo;
+  font-family: Mulish;
+  font-weight:bold;
   letter-spacing: 0.06rem;
   font-size: 0.8rem;
   margin-left: 0.5rem;
@@ -80,8 +81,9 @@ const Username = styled.div`
 const Message = styled.p`
   margin: 0.5rem 0;
   color: ${(props) => props.theme.fontCol};
-  font-family: Archivo;
-  letter-spacing: 0.05rem;
+  font-family: Mulish;
+  font-weight:600;
+  letter-spacing: 0.03rem;
   padding: 0;
   text-align: center;
 `;

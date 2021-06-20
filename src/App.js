@@ -5,6 +5,7 @@ import Footer from "./comp/Footer";
 import Result from './comp/Result';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
+// import logo from './assest/logo.png'
 // import Profile from './comp/Profile';
 // import Loading from './comp/Loading';
 
@@ -13,6 +14,7 @@ function App() {
     <Container>
       <Helmet>
         <title>Chazyy | Demo</title>
+        {/* <link rel="icon" type="image/png" href={logo} /> */}
       </Helmet>
       <Nav>
         <Navbar />

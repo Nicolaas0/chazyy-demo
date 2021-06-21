@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@600&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&display=swap');
 
 html,
 body,
@@ -126,7 +125,7 @@ table {
 }
 
 * {
-  font-family: "Mulish";
+  font-family: 'Archivo';
   outline: none;
   scrollbar-width: thin;
   scrollbar-color: #70ffa7 #2a2a2a;

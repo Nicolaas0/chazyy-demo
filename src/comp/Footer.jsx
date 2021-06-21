@@ -56,13 +56,15 @@ const Link = styled.div`
 
 const Icon = styled.a`
   color: ${(props) => props.theme.themeColor};
+  font-family:Archivo;
   text-decoration: none;
-  font-weight:bold;
+  font-weight: 600;
 `;
 
 const Web = styled.a`
   color: ${(props) => props.theme.themeColor};
-  font-weight: bold;
+  font-family: Archivo;
+  font-weight: 600;
 `;
 
 export default Footer;

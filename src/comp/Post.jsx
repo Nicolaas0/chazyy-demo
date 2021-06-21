@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import firebase from "../Firebase";
-import moment from "moment";
+// import moment from "moment";
 import { dev } from "../config/breakp";
 // import { v4 as uuidv4 } from "uuid";
 
@@ -10,41 +10,30 @@ const Post = () => {
   const [message, setMessage] = useState("");
   const [pending, setIsPending] = useState(false);
   const [unameErr, setUnameErr] = useState(false);
-  const [date, setDate] = useState("");
+  // const [date, setDate] = useState("");
   // const [uuid, setUuid] = useState("");
 
-  const fixUname = (name) => {
-    if (name.includes(" ") && name.length > 15) {
-      return null;
-    } else {
-      return "@" + name;
-    }
-  };
+  // const fixUname = (name) => {
+  //   if (name.includes(" ") && name.length > 15) {
+  //     console.log('P')
+  //     return null;
+  //   } else {
+  //    return setUsername(`@${name}`);
+  //   }
+  // };
 
   // const uuidGen = () => {
   //   const i = setUuid(uuidv4());
   //   return setUuid(i);
   // };
 
-  const dateGen = () => {
-    const vd = moment().format("MMMM Do YYYY, h:mm:ss a");
-    return setDate(vd);
-  };
+  // const dateGen = () => {
+  //   const vd = moment().format("MMMM Do YYYY, h:mm:ss a");
+  //   return setDate(vd);
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // uuidGen();
-    dateGen();
-
-    const un = fixUname(username)
-
-    let v = { username, message, date};
-
-    if (v.username === null) {
-      setUnameErr(true);
-    } else {
-      v.username = un;
 
       setIsPending(true);
       setUnameErr(false);
@@ -53,7 +42,6 @@ const Post = () => {
       const data = {
         username: username,
         message: message,
-        date: date,
       };
 
       ref.push(data);
@@ -61,7 +49,7 @@ const Post = () => {
       setIsPending(false);
       setMessage("");
       setUsername("");
-    }
+
   };
 
   useEffect(() => {
@@ -118,8 +106,8 @@ const Container = styled.div`
 
 const Label = styled.label`
   margin-right: 0.5rem;
-  font-family: Mulish;
-  font-weight:600;
+  font-family: Archivo;
+  font-weight: 600;
   color: ${(props) => props.theme.themeColor};
 `;
 
@@ -130,7 +118,7 @@ const Block = styled.div`
 
 const Input = styled.input`
   background-color: ${(props) => props.theme.lghtUtilBlack};
-  font-family: Mulish;
+  font-family: Archivo;
   font-weight: 600;
   border: 0.2rem solid ${(props) => props.theme.bgColor};
   border-radius: 1rem;

@@ -5,24 +5,14 @@ import Footer from "./comp/Footer";
 import Result from './comp/Result';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
-import { useEffect } from 'react';
-import firebase from './Firebase'
+import SignIn from './SignIn'
 // import logo from './assest/logo.png'
 // import Profile from './comp/Profile';
 // import Loading from './comp/Loading';
 
 function App() {
 
-  useEffect(() => {
-    firebase.auth().signInAnonymously()
-      .then(() => {
-      console.log('Sign In Sucess!')
-      })
-      .catch((error) => {
-        var errorCode = error.code;
-        var errorMess = error.message;
-    })
-  })
+  SignIn();
 
   return (
     <Container>

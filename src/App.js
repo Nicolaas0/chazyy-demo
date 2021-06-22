@@ -5,26 +5,41 @@ import Footer from "./comp/Footer";
 import Result from './comp/Result';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
+import { useEffect } from 'react';
+import firebase from './Firebase'
 // import logo from './assest/logo.png'
 // import Profile from './comp/Profile';
 // import Loading from './comp/Loading';
 
 function App() {
+
+  useEffect(() => {
+    firebase.auth().signInAnonymously()
+      .then(() => {
+      console.log('Sign In Sucess!')
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMess = error.message;
+    })
+  })
+
   return (
     <Container>
       <Helmet>
         <title>Chazyy | Demo</title>
         {/* <link rel="icon" type="image/png" href={logo} /> */}
       </Helmet>
+      {/* BODY */}
       <Nav>
         <Navbar />
       </Nav>
-      <Content>
+      <Home>
         <Second>
           <Result />
           <Post />
         </Second>
-      </Content>
+      </Home>
       <Footer />
     </Container>
   );
@@ -44,7 +59,7 @@ const Nav = styled.div`
   width: auto;
 `;
 
-const Content = styled.div`
+const Home = styled.div`
 height:auto;
 width:auto;
   display:flex;

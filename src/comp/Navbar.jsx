@@ -3,9 +3,11 @@ import styled from "styled-components";
 import "../index.css";
 import menubar from "../assest/menu.png";
 import { dev } from "../config/breakp";
+import ModalSignIn from "./ModalSignIn";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSignIn, setIsSignIn] = useState(false);
 
   return (
     <Nav>
@@ -20,7 +22,19 @@ const Navbar = () => {
         />
       </Responsive>
 
-          {/* FOR NEXT UPDATE! */}
+      <NavList isOpen={isOpen}>
+        <Join
+          href="#"
+          onClick={() => {
+            setIsSignIn(!isSignIn);
+          }}
+        >
+          Join Now!
+        </Join>
+      </NavList>
+      {/* IMPORTANT!!! */}
+      {isSignIn ? <ModalSignIn /> : null}
+      {/* FOR NEXT UPDATE! */}
 
       {/* {isOpen ? null : <Search placeholder="Search..." />} */}
       {/* <NavList isOpen={isOpen}>
@@ -92,17 +106,17 @@ const Logo = styled.h1`
 //   }
 // `;
 
-// const NavList = styled.ul`
-//   text-decoration: none;
+const NavList = styled.ul`
+  text-decoration: none;
 
-//   @media ${dev.tablet} {
-//     width: 100%;
-//     display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
-//     flex-direction: column;
-//     align-items: center;
-//     transition: display 1s;
-//   }
-// `;
+  @media ${dev.tablet} {
+    width: 100%;
+    display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+    flex-direction: column;
+    align-items: center;
+    transition: display 1s;
+  }
+`;
 
 const Nav = styled.header`
   margin: 1rem 0;
@@ -119,31 +133,31 @@ const Nav = styled.header`
   }
 `;
 
-// const Join = styled.button`
-//   margin: 0 0.5rem;
-//   font-size: 1.2rem;
-//   background-color: ${(props) => props.theme.bgColor};
-//   padding: 0.25rem;
-//   border: 0.2rem ${(props) => props.theme.themeColor} solid;
-//   color: ${(props) => props.theme.themeColor};
-//   cursor: pointer;
+const Join = styled.button`
+  margin: 0 0.5rem;
+  font-size: 1.2rem;
+  background-color: ${(props) => props.theme.bgColor};
+  padding: 0.25rem;
+  border: 0.2rem ${(props) => props.theme.themeColor} solid;
+  color: ${(props) => props.theme.themeColor};
+  cursor: pointer;
 
-//   &:hover {
-//     background-color: ${(props) => props.theme.themeColor};
-//     color: ${(props) => props.theme.bgColor};
-//   }
+  &:hover {
+    background-color: ${(props) => props.theme.themeColor};
+    color: ${(props) => props.theme.bgColor};
+  }
 
-//   @media ${dev.tablet} {
-//   }
-// `;
+  @media ${dev.tablet} {
+  }
+`;
 
 const Menu = styled.img`
-width:25px;
-height:25px;
+  width: 25px;
+  height: 25px;
 
   @media ${dev.tablet} {
     display: relative;
-    margin:0 0.5rem;
+    margin: 0 0.5rem;
   }
 
   @media (min-width: 769px) {
@@ -157,7 +171,7 @@ const Responsive = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items:center;
+    align-items: center;
   }
 `;
 

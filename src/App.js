@@ -12,7 +12,7 @@ import SignIn from './SignIn'
 
 function App() {
 
-  SignIn();
+  // SignIn();
 
   return (
     <Container>
@@ -30,7 +30,7 @@ function App() {
           <Post />
         </Second>
       </Home>
-      <Footer />
+<Footer />
     </Container>
   );
 }

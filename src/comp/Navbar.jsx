@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import "../index.css";
 import menubar from "../assest/menu.png";
 import { dev } from "../config/breakp";
 import ModalSignIn from "./ModalSignIn";
+import SignIn from "../SignIn";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isSignIn, setIsSignIn] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <Nav>
@@ -26,14 +27,14 @@ const Navbar = () => {
         <Join
           href="#"
           onClick={() => {
-            setIsSignIn(!isSignIn);
+            setShowModal(!showModal);
           }}
         >
           Join Now!
         </Join>
       </NavList>
       {/* IMPORTANT!!! */}
-      {isSignIn ? <ModalSignIn /> : null}
+      {showModal ? <ModalSignIn showModal={showModal} setShowModal={setShowModal} /> : null}
       {/* FOR NEXT UPDATE! */}
 
       {/* {isOpen ? null : <Search placeholder="Search..." />} */}

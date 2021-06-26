@@ -11,10 +11,9 @@ const SignIn = (email,pass) => {
           .then((userCredential) => {
             var user = userCredential.user;
             console.log('Sucess!!')
-            console.log(user);
           })
           .catch(() => {});
-  },[])
+  })
     
       // useEffect(() => {
       //   firebase

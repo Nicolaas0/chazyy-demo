@@ -1,56 +1,62 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState,useRef } from "react";
 import SignIn from "../SignIn";
+import Navbar from "./Navbar";
 
-const ModalSignIn = (props) => {
+const ModalSignIn = ({ showModal, setShowModal }) => {
   const [useEmail, setEmail] = useState("");
   const [usePass, setPass] = useState("");
-  const isSignIn = props.isSignIn;
-  console.log(isSignIn);
-  console.log(useEmail);
-  console.log(usePass);
+  const modalRef = useRef();
 
   const handleSignIn = () => {
     SignIn(useEmail, usePass);
   };
 
+  const closeModal = (e) => {
+    if (modalRef.current === e.target) {
+      setShowModal(false);
+    }
+  }
+
   return (
-    <Background>
-    <Container>
-      <Header>Sign In</Header>
-      <Body>
-        <Form onSubmit={handleSignIn}>
-          <Label htmlFor="">Email</Label>
-          <Input
-            type="text"
-            require
-            value={useEmail}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <Label htmlFor="">Password</Label>
-          <Input
-            type="password"
-            require
-            value={usePass}
-            onChange={(e) => {
-              setPass(e.target.value);
-            }}
-          />
-          <Label htmlFor="">Re-Password</Label>
-          <Input type="password" />
-          <Button>Sign In!</Button>
-        </Form>
-      </Body>
+    <Background ref={modalRef} onClick={closeModal}>
+      {/* {offModal ? ( */}
+      <Container>
+        <Header>Sign In</Header>
+        <Body>
+          <Form onSubmit={handleSignIn}>
+            <Label htmlFor="">Email</Label>
+            <Input
+              type="text"
+              require
+              value={useEmail}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+            <Label htmlFor="">Password</Label>
+            <Input
+              type="password"
+              require
+              value={usePass}
+              onChange={(e) => {
+                setPass(e.target.value);
+              }}
+            />
+            <Label htmlFor="">Re-Password</Label>
+            <Input type="password" />
+            <Button>Sign In!</Button>
+          </Form>
+        </Body>
       </Container>
-      </Background>
+      {/* ) : null} */}
+    </Background>
   );
 };
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.lghtBgColor};
-  height: 47%;
+  height: auto;
   width: 20%;
   border: 1px ${(props) => props.theme.lghtBgColor} solid;
   border-radius: 0.7rem;
@@ -97,7 +103,7 @@ const Input = styled.input`
 `;
 
 const Label = styled.label`
-  font-size:0.9rem;
+  font-size: 0.9rem;
   color: ${(props) => props.theme.fontCol};
   font-family: Archivo;
   font-weight: 500;
@@ -111,9 +117,9 @@ const Button = styled.button`
 `;
 
 const Background = styled.div`
-  position: absolute;
   margin-top: 35rem;
   background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;

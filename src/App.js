@@ -45,13 +45,13 @@ const Container = styled.div`
 `
 
 const Nav = styled.div`
-  height: auto;
-  width: auto;
+  height: 100%;
+  width:100%;
 `;
 
 const Home = styled.div`
-height:auto;
-width:auto;
+height:100%;
+width:100%;
   display:flex;
   flex-direction:row;
   justify-content:space-around;
@@ -60,8 +60,8 @@ width:auto;
 `
 
 const Second = styled.div`
-  height: auto;
-  width: auto;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: start;

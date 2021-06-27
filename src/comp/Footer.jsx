@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { dev } from '../config/breakp'
+import { dev } from "../config/breakp";
 
 const Footer = () => {
   return (
@@ -31,16 +31,16 @@ const Footer = () => {
 };
 
 const Container = styled.div`
-margin:0;
-width:100%;
-height:100%;
-display:flex;
-flex-direction:row;
-align-items:center;
-justify-content:center;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 
   @media ${dev.mobileM} {
-    flex-direction:column;
+    flex-direction: column;
   }
 `;
 
@@ -57,7 +57,7 @@ const Link = styled.div`
 
 const Icon = styled.a`
   color: ${(props) => props.theme.themeColor};
-  font-family:Archivo;
+  font-family: Archivo;
   text-decoration: none;
   font-weight: 600;
 `;

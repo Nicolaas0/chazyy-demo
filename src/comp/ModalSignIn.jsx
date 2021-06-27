@@ -32,6 +32,7 @@ const ModalSignIn = ({ showModal, setShowModal }) => {
               value={useEmail}
               onChange={(e) => {
                 setEmail(e.target.value);
+                console.log(useEmail)
               }}
             />
             <Label htmlFor="">Password</Label>
@@ -41,6 +42,7 @@ const ModalSignIn = ({ showModal, setShowModal }) => {
               value={usePass}
               onChange={(e) => {
                 setPass(e.target.value);
+                console.log(usePass)
               }}
             />
             <Label htmlFor="">Re-Password</Label>
@@ -117,13 +119,12 @@ const Button = styled.button`
 `;
 
 const Background = styled.div`
-  margin-top: 35rem;
+  margin-top: 37rem;
   background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display:flex;
+  position:absolute;
+  justify-content:center;
+  align-items:center;
   z-index: 1;
   width: 100%;
   height: 100%;

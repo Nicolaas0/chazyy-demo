@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 html,
 body,
@@ -145,7 +146,7 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   /* border: 1px solid green; */
-  -webkit-text-fill-color: #CDCDCD;
+  -webkit-text-fill-color: #CDCDCD ;
   /* -webkit-box-shadow: 0 0 0px 1000px #000 inset; */
   transition: background-color 5000s ease-in-out 0s;
 }

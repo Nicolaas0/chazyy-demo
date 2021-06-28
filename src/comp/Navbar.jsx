@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import "../index.css";
 import menubar from "../assest/menu.png";
 import { dev } from "../config/breakp";
 import ModalSignIn from "./ModalSignIn";
-import SignIn from "../SignIn";
+// import SignIn from "../SignIn";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,6 +50,8 @@ const Navbar = () => {
 };
 
 const Logo = styled.h1`
+  font-family: "Poppins";
+  font-weight: 600;
   font-size: 1.7rem;
   cursor: pointer;
   color: ${(props) => props.theme.themeColor};
@@ -136,6 +138,8 @@ const Nav = styled.header`
 
 const Join = styled.button`
   margin: 0 0.5rem;
+  font-family:'Poppins';
+  font-weight:600;
   font-size: 1.2rem;
   background-color: ${(props) => props.theme.bgColor};
   padding: 0.25rem;

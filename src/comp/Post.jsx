@@ -3,11 +3,15 @@ import styled from "styled-components";
 import firebase from "../Firebase";
 // import moment from "moment";
 import { dev } from "../config/breakp";
-// import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
+
+// var uniqid = require('uniqid');
 
 const Post = () => {
   const [username, setUsername] = useState("");
   const [message, setMessage] = useState("");
+  const [id, setId] = useState("");
+
   const [pending, setIsPending] = useState(false);
   const [unameErr, setUnameErr] = useState(false);
   // const [date, setDate] = useState("");
@@ -22,11 +26,6 @@ const Post = () => {
   //   }
   // };
 
-  // const uuidGen = () => {
-  //   const i = setUuid(uuidv4());
-  //   return setUuid(i);
-  // };
-
   // const dateGen = () => {
   //   const vd = moment().format("MMMM Do YYYY, h:mm:ss a");
   //   return setDate(vd);
@@ -35,6 +34,9 @@ const Post = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    setId(uuidv4())
+    console.log(id)
+
       setIsPending(true);
       setUnameErr(false);
 
@@ -42,6 +44,7 @@ const Post = () => {
       const data = {
         username: username,
         message: message,
+        id: id,
       };
 
       ref.push(data);

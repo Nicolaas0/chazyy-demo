@@ -1,9 +1,11 @@
 // import React, { useState } from "react";
 import styled from "styled-components";
 import "../index.css";
+import firebase from '../Firebase'
 // import love from "../assest/love.png";
 // import lovec from "../assest/loveclick.png";
 // import reply from "../assest/reply.png";
+import spam from "../assest/spam.png"
 import ScrollableFeed from 'react-scrollable-feed'
 import { dev } from "../config/breakp";
 import { useEffect } from "react";
@@ -18,9 +20,10 @@ const PosRes = (prop) => {
   //   });
   // };
 
+
   useEffect(() => {
     // scrollToBottom()
-  },[])
+  }, [])
 
   const data = prop.val;
   console.log(data);
@@ -29,10 +32,12 @@ const PosRes = (prop) => {
     <Container>
       <ScrollableFeed>
         {data.map((d) => (
-          <DataPrev key={d.uuid}>
+          <DataPrev key={d.id}>
             <Username>{d.username}</Username>
             <Message className="message">{d.message}</Message>
-
+            <IcCont>
+              <Icon src={spam}/>
+            </IcCont>
             {/* <IcCont>
             {click ? <Love onClick={()=>{
               setClick(!click)
@@ -115,13 +120,17 @@ const Container = styled.div`
   }
 `;
 
-// const IcCont = styled.div`
-//   display: flex;
-//   justify-content: space-evenly;
-//   align-items: center;
-//   margin-top: 1rem;
-//   margin-bottom: 0.1rem;
-// `;
+const Icon = styled.img`
+  cursor:pointer;
+`
+
+const IcCont = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 0.1rem;
+`;
 
 // const Love = styled.img`
 //   width: auto;

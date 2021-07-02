@@ -34,25 +34,24 @@ const Post = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setId(uuidv4())
-    console.log(id)
+    setId(uuidv4());
+    console.log(id);
 
-      setIsPending(true);
-      setUnameErr(false);
+    setIsPending(true);
+    setUnameErr(false);
 
-      const ref = firebase.database().ref("Demo");
-      const data = {
-        username: username,
-        message: message,
-        id: id,
-      };
+    const ref = firebase.database().ref("Demo");
+    const data = {
+      username: username,
+      message: message,
+      id: id,
+    };
 
-      ref.push(data);
+    ref.push(data);
 
-      setIsPending(false);
-      setMessage("");
-      setUsername("");
-
+    setIsPending(false);
+    setMessage("");
+    setUsername("");
   };
 
   useEffect(() => {
@@ -120,7 +119,7 @@ const Block = styled.div`
 `;
 
 const Input = styled.input`
-  background-color: ${(props) => props.theme.lghtUtilBlack};
+  background-color: ${(props) => props.theme.drkrUtilBlack};
   font-family: Archivo;
   font-weight: 600;
   border: 0.2rem solid ${(props) => props.theme.bgColor};
@@ -139,7 +138,7 @@ const Input = styled.input`
 const Button = styled.button`
     border: 0.18rem solid ${(props) => props.theme.bgColor};
   padding:0.2rem 0;
-  background-color: ${(props) => props.theme.lghtUtilBlack};
+  background-color: ${(props) => props.theme.drkrUtilBlack};
   color:${(props) => props.theme.utilCol}}}
   dding: 0.2rem 0.5rem;
   transition: 0.5s;
@@ -155,7 +154,7 @@ const Button = styled.button`
 `;
 
 const TextArea = styled.textarea`
-  background-color: ${(props) => props.theme.lghtUtilBlack};
+  background-color: ${(props) => props.theme.drkrUtilBlack};
   color: ${(props) => props.theme.fontCol};
   border: 0.18rem solid ${(props) => props.theme.bgColor};
   font-family: Archivo;

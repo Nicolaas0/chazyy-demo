@@ -6,6 +6,7 @@ import Result from "./comp/Result";
 import styled from "styled-components";
 import Helmet from "react-helmet";
 import SignIn from "./SignIn";
+import SignInPage from "./comp/SignInPage";
 // import logo from './assest/logo.png'
 // import Profile from './comp/Profile';
 // import Loading from './comp/Loading';
@@ -14,33 +15,36 @@ function App() {
   // SignIn();
 
   return (
-    <Container>
-      <Helmet>
-        <title>Chazyy | Demo</title>
-        {/* <link rel="icon" type="image/png" href={logo} /> */}
-      </Helmet>
+    // <Container>
+    //   <Helmet>
+    //     <title>Chazyy | Demo</title>
+    //     {/* <link rel="icon" type="image/png" href={logo} /> */}
+    //   </Helmet>
 
-      {/* BODY */}
+    //   {/* BODY */}
 
-      {/* Navbar Area */}
-      <Nav>
-        <Navbar />
-      </Nav>
-      {/* End of Navbar area */}
+    //   {/* Navbar Area */}
+    //   <Nav>
+    //     <Navbar />
+    //   </Nav>
+    //   {/* End of Navbar area */}
 
-      {/* Home Area */}
-      <Home>
-        <Second>
-          <Result />
-          <Post />
-        </Second>
-      </Home>
-      {/* End of Home area */}
+    //   {/* Home Area */}
+    //   <Home>
+    //     <Second>
+    //       <Result />
+    //       <Post />
+    //     </Second>
+    //   </Home>
+    //   {/* End of Home area */}
 
-      {/* Footer Area */}
-      <Footer />
-      {/* End of Footer Area */}
-    </Container>
+    //   {/* Footer Area */}
+    //   <Footer />
+    //   {/* End of Footer Area */}
+    // </Container>
+    <div>
+      <SignInPage/>
+    </div>
   );
 }
 

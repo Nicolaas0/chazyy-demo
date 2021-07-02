@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Result from "../comp/Result";
-import storm from '../assest/strom.svg';
+import storm from "../assest/strom.svg";
 
 const ErrorFetch = (props) => {
   const mess = props.err;
@@ -49,7 +49,7 @@ const Refresh = styled.button`
   margin-top: 1rem;
   background-color: transparent;
   color: ${(props) => props.theme.fontCol};
-  border: 0.25rem ${(props) => props.theme.lghtUtilBlack} solid;
+  border: 0.25rem ${(props) => props.theme.drkrUtilBlack} solid;
   padding: 0.2rem 0.5rem;
   transition: 0.5s;
   cursor: pointer;

@@ -3,12 +3,10 @@ import styled from "styled-components";
 import "../index.css";
 import menubar from "../assest/menu.png";
 import { dev } from "../config/breakp";
-import ModalSignIn from "./ModalSignIn";
 // import SignIn from "../SignIn";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showModal, setShowModal] = useState(false);
 
   return (
     <Nav>
@@ -26,17 +24,12 @@ const Navbar = () => {
       <NavList isOpen={isOpen}>
         <Join
           href="#"
-          onClick={() => {
-            setShowModal(!showModal);
-          }}
         >
           Join Now!
         </Join>
       </NavList>
       {/* IMPORTANT!!! */}
-      {showModal ? <ModalSignIn showModal={showModal} setShowModal={setShowModal} /> : null}
       {/* FOR NEXT UPDATE! */}
-
       {/* {isOpen ? null : <Search placeholder="Search..." />} */}
       {/* <NavList isOpen={isOpen}>
         {isOpen ? <Search placeholder="Search..." /> : null}

@@ -1,12 +1,26 @@
 import { useEffect, useState } from "react";
-import firebase from "./Firebase";
+import firebase from "./Firebase"
 
 const FetchData = (ep) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [useId, setId] = useState("")
+
+  // const getId = () => {
+  //   firebase
+  //     .database()
+  //     .ref("Demo")
+  //     .once("value")
+  //     .then((snapshot) => {
+  //       var id = snapshot.key;
+  //       console.log(id)
+  //       setId(id);
+  //     });
+  // };
 
   const showData = () => {
+
     const ref = firebase.database().ref(ep);
     ref.on("value", (snapshot) => {
       const res = snapshot.val();

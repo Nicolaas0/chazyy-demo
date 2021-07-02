@@ -1,11 +1,11 @@
 // import React, { useState } from "react";
 import styled from "styled-components";
 import "../index.css";
-import firebase from '../Firebase'
+// import firebase from '../Firebase'
 // import love from "../assest/love.png";
 // import lovec from "../assest/loveclick.png";
 // import reply from "../assest/reply.png";
-import spam from "../assest/spam.png"
+// import spam from "../assest/spam.png"
 import ScrollableFeed from 'react-scrollable-feed'
 import { dev } from "../config/breakp";
 import { useEffect } from "react";
@@ -35,9 +35,9 @@ const PosRes = (prop) => {
           <DataPrev key={d.id}>
             <Username>{d.username}</Username>
             <Message className="message">{d.message}</Message>
-            <IcCont>
+            {/* <IcCont>
               <Icon src={spam}/>
-            </IcCont>
+            </IcCont> */}
             {/* <IcCont>
             {click ? <Love onClick={()=>{
               setClick(!click)
@@ -120,17 +120,17 @@ const Container = styled.div`
   }
 `;
 
-const Icon = styled.img`
-  cursor:pointer;
-`
+// const Icon = styled.img`
+//   cursor:pointer;
+// `
 
-const IcCont = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-top: 1rem;
-  margin-bottom: 0.1rem;
-`;
+// const IcCont = styled.div`
+//   display: flex;
+//   justify-content: space-evenly;
+//   align-items: center;
+//   margin-top: 1rem;
+//   margin-bottom: 0.1rem;
+// `;
 
 // const Love = styled.img`
 //   width: auto;

@@ -15,36 +15,34 @@ function App() {
   // SignIn();
 
   return (
-    // <Container>
-    //   <Helmet>
-    //     <title>Chazyy | Demo</title>
-    //     {/* <link rel="icon" type="image/png" href={logo} /> */}
-    //   </Helmet>
+    <Container>
+      <Helmet>
+        <title>Chazyy | Demo</title>
+        {/* <link rel="icon" type="image/png" href={logo} /> */}
+      </Helmet>
 
-    //   {/* BODY */}
+      {/* BODY */}
 
-    //   {/* Navbar Area */}
-    //   <Nav>
-    //     <Navbar />
-    //   </Nav>
-    //   {/* End of Navbar area */}
+      {/* Navbar Area */}
+      {/* <Nav>
+        <Navbar />
+      </Nav> */}
+      {/* End of Navbar area */}
 
-    //   {/* Home Area */}
-    //   <Home>
-    //     <Second>
-    //       <Result />
-    //       <Post />
-    //     </Second>
-    //   </Home>
-    //   {/* End of Home area */}
+      {/* Home Area */}
+      {/* <Home>
+        <Second>
+          <Result />
+          <Post />
+        </Second>
+      </Home> */}
+      {/* End of Home area */}
 
-    //   {/* Footer Area */}
-    //   <Footer />
-    //   {/* End of Footer Area */}
-    // </Container>
-    <div>
-      <SignInPage/>
-    </div>
+      {/* Footer Area */}
+      {/* <Footer /> */}
+      {/* End of Footer Area */}
+      <SignInPage />
+    </Container>
   );
 }
 

@@ -139,7 +139,7 @@ const Button = styled.button`
     border: 0.18rem solid ${(props) => props.theme.bgColor};
   padding:0.2rem 0;
   background-color: ${(props) => props.theme.drkrUtilBlack};
-  color:${(props) => props.theme.utilCol}}}
+  color:${(props) => props.theme.utilCol};
   dding: 0.2rem 0.5rem;
   transition: 0.5s;
   cursor: pointer;

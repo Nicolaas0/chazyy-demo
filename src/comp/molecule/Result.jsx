@@ -1,6 +1,6 @@
-import FetchData from "../FetchData";
-import PosRes from "./PosRes";
-import ErrorFetch from "./ErrorFetch";
+import FetchData from "../../FetchData";
+import PosRes from "../molecule/PosRes";
+import ErrorFetch from "../ErrorFetch";
 import Loading from "./Loading";
 // import firebase from '../Firebase'
 

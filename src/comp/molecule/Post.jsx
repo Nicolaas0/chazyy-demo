@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import firebase from "../Firebase";
+import firebase from "../../Firebase";
 // import moment from "moment";
-import { dev } from "../config/breakp";
+import { dev } from "../../config/breakp";
+import { color } from "../../config/theme";
 import { v4 as uuidv4 } from "uuid";
 
 // var uniqid = require('uniqid');
@@ -94,7 +95,7 @@ const Container = styled.div`
   height: 14rem;
   border-radius: 1rem;
   position: relative;
-  background-color: ${(props) => props.theme.lghtBgColor};
+  background-color: ${color.rBFogra};
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -108,9 +109,9 @@ const Container = styled.div`
 
 const Label = styled.label`
   margin-right: 0.5rem;
-  font-family: Archivo;
+  font-family: "Roboto Mono";
   font-weight: 600;
-  color: ${(props) => props.theme.themeColor};
+  color: ${color.sonicSv};
 `;
 
 const Block = styled.div`
@@ -119,32 +120,33 @@ const Block = styled.div`
 `;
 
 const Input = styled.input`
-  background-color: ${(props) => props.theme.drkrUtilBlack};
-  font-family: Archivo;
+  background-color: ${color.erie};
+  font-family: "Roboto Mono";
   font-weight: 600;
-  border: 0.2rem solid ${(props) => props.theme.bgColor};
+  border: 0.2rem solid ${color.erie};
   border-radius: 1rem;
   transition: 0.3s;
   font-size: 1rem;
   padding: 0.35rem;
   transition: 0.1s;
-  color: ${(props) => props.theme.fontCol};
+  color: ${color.lightgray};
 
   &:focus {
-    border: 0.2rem solid ${(props) => props.theme.themeColor};
+    border: 0.15rem solid ${color.lightgray};
   }
 `;
 
 const Button = styled.button`
-    border: 0.18rem solid ${(props) => props.theme.bgColor};
-  padding:0.2rem 0;
-  background-color: ${(props) => props.theme.drkrUtilBlack};
-  color:${(props) => props.theme.utilCol};
-  dding: 0.2rem 0.5rem;
+  border: 0.18rem solid ${color.sonicSv};
+  padding: 0.2rem 0;
+  background-color: ${color.rBFogra};
+  color: ${color.lightgray};
+  padding: 0.2rem 0.5rem;
   transition: 0.5s;
   cursor: pointer;
   width: 5rem;
   transition: 0.1s;
+  font-family: "Roboto Mono";
 
   &:hover {
     width: 6rem;
@@ -154,10 +156,10 @@ const Button = styled.button`
 `;
 
 const TextArea = styled.textarea`
-  background-color: ${(props) => props.theme.drkrUtilBlack};
-  color: ${(props) => props.theme.fontCol};
-  border: 0.18rem solid ${(props) => props.theme.bgColor};
-  font-family: Archivo;
+  background-color: ${color.erie};
+  color: ${color.lightgray};
+  border: 0.18rem solid ${color.erie};
+  font-family: "Roboto Mono";
   margin: 0.5rem 0;
   display: block;
   transition: 0.1s;

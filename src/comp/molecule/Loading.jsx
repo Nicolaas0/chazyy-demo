@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {dev} from '../config/breakp'
+import { dev } from "../../config/breakp";
 
 const Loading = () => {
   return (

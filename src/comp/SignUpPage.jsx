@@ -2,24 +2,32 @@ import styled from "styled-components";
 import { useRef, useState } from "react";
 import { color } from "../config/theme";
 import { useAuth } from "../comp/context/AuthContext";
+import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 
-const SignInPage = () => {
+const SignUpPage = () => {
   const emailRef = useRef();
   const passRef = useRef();
+  const repassRef = useRef();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
-  const { signIn } = useAuth();
+  const { signUp } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (passRef.current.value !== repassRef.current.value) {
+      return setError("The password did not match!");
+    }
+
     try {
       setError("");
       setLoading(true);
-      await signIn(emailRef.current.value, passRef.current.value);
+      await signUp(emailRef.current.value, passRef.current.value);
+      history.push("/SignIn");
     } catch {
-      setError("Error while signing in.");
+      setError("Error while signing up.");
     }
     setLoading(false);
   };
@@ -27,28 +35,34 @@ const SignInPage = () => {
   return (
     <Div>
       <Heading>
-        Chazyy / <Span>Log in</Span>
+        Chazyy / <Span>Register</Span>
       </Heading>
       <Container>
         <FormCon>
           <Form onSubmit={handleSubmit}>
             <Input type="text" placeholder="Email" ref={emailRef} />
             <Input type="password" placeholder="Password" ref={passRef} />
-            {loading ? <Button>Loading...</Button> : <Button>Sign In</Button>}
-            <ForDonPass>
-              New to Chazyy?{" "}
-              <Link to="/SignUp">
-                <Text>Click Here!</Text>
-              </Link>
-            </ForDonPass>
+            <Input
+              className="repass"
+              type="password"
+              placeholder="Re-Password"
+              ref={repassRef}
+            />
             <Warning error={error}>{error}</Warning>
+            {loading ? <Button>Loading...</Button> : <Button>Sign Up</Button>}
+            <ForDonPass>
+              Already have an account? <Link to="/SignIn"><Text>Click Here!</Text></Link>
+            </ForDonPass>
             {/* {error ? <Warning>{error}</Warning> : null} */}
           </Form>
         </FormCon>
       </Container>
       <TipCon>
         <TipH>TIP:</TipH>
-        <TipB>Enough for the tip, just have fun in Chazyy!!</TipB>
+        <TipB>
+          Don't create password over your partner's name, we don't have password
+          reset if you breaking up with them.
+        </TipB>
       </TipCon>
     </Div>
   );
@@ -96,7 +110,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   background-color: ${color.rBFogra};
   border: solid 0.2rem ${color.bgColor};
   color: ${color.sonicSv};
@@ -171,17 +185,17 @@ const Warning = styled.span`
 `;
 
 const ForDonPass = styled.div`
-  font-family: "Roboto Mono";
-  font-size: 0.8rem;
-  color: ${color.sonicSv};
+  font-family:"Roboto Mono";
+  font-size:0.8rem;
+  color:${color.sonicSv};
 `;
 
 const Text = styled.span`
   font-family: "Roboto Mono";
   font-size: 0.8rem;
-  color: ${color.cultured};
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
+  color:${color.cultured};
+  text-decoration:none;
+  margin:0;
+  padding:0;
 `;
-export default SignInPage;
+export default SignUpPage;

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import "../index.css";
-import menubar from "../assest/menu.png";
-import { dev } from "../config/breakp";
+import "../../index.css";
+import menubar from "../../assest/menu.png";
+import { dev } from "../../config/breakp";
+import { color } from "../../config/theme";
+import {Link} from "react-router-dom"
 // import SignIn from "../SignIn";
 
 const Navbar = () => {
@@ -22,11 +24,9 @@ const Navbar = () => {
       </Responsive>
 
       <NavList isOpen={isOpen}>
-        <Join
-          href="#"
-        >
-          Join Now!
-        </Join>
+        <Link to="/SignIn">
+          <Join>Join Now!</Join>
+        </Link>
       </NavList>
       {/* IMPORTANT!!! */}
       {/* FOR NEXT UPDATE! */}
@@ -43,11 +43,11 @@ const Navbar = () => {
 };
 
 const Logo = styled.h1`
-  font-family: "Poppins";
+  font-family: "Roboto Mono";
   font-weight: 600;
   font-size: 1.7rem;
   cursor: pointer;
-  color: ${(props) => props.theme.themeColor};
+  color: ${color.themecol};
   padding: 0.2rem;
 
   &:hover {
@@ -131,18 +131,19 @@ const Nav = styled.header`
 
 const Join = styled.button`
   margin: 0 0.5rem;
-  font-family:'Poppins';
-  font-weight:600;
+  font-family: "Roboto Mono";
+  font-weight: 700;
   font-size: 1.2rem;
-  background-color: ${(props) => props.theme.bgColor};
+  background-color: ${color.bgColor};
   padding: 0.25rem;
-  border: 0.2rem ${(props) => props.theme.themeColor} solid;
-  color: ${(props) => props.theme.themeColor};
+  border: 0.2rem ${color.sonicSv} solid;
+  color: ${color.sonicSv};
   cursor: pointer;
 
   &:hover {
-    background-color: ${(props) => props.theme.themeColor};
-    color: ${(props) => props.theme.bgColor};
+    background-color: ${color.bgColor};
+    color: ${color.themecol};
+    border: 0.2rem ${color.themecol} solid;
   }
 
   @media ${dev.tablet} {

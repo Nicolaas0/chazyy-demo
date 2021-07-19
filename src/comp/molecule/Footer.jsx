@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { dev } from "../config/breakp";
+import { dev } from "../../config/breakp";
+import { color } from "../../config/theme";
 
 const Footer = () => {
   return (
@@ -56,24 +57,25 @@ const Container = styled.div`
 const Link = styled.div`
   border-radius: 1rem;
   text-align: center;
-  color: ${(props) => props.theme.utilCol};
+  color: ${color.sonicSv};
   width: auto;
   height: auto;
+  font-family:"Roboto Mono";
   margin: 0.5rem;
-  background-color: ${(props) => props.theme.lghtBgColor};
+  background-color: ${color.rBFogra};
   padding: 0.8rem;
 `;
 
 const Icon = styled.a`
-  color: ${(props) => props.theme.themeColor};
-  font-family: Archivo;
+  color: ${color.sonicSv};
+  font-family: "Roboto Mono";
   text-decoration: none;
   font-weight: 600;
 `;
 
 const Web = styled.a`
-  color: ${(props) => props.theme.themeColor};
-  font-family: Archivo;
+  color: ${color.sonicSv};
+  font-family: "Roboto Mono";
   font-weight: 600;
 `;
 

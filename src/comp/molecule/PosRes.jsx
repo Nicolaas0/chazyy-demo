@@ -1,14 +1,16 @@
 // import React, { useState } from "react";
 import styled from "styled-components";
-import "../index.css";
+import "../../index.css";
+import "../../config/theme";
 // import firebase from '../Firebase'
 // import love from "../assest/love.png";
 // import lovec from "../assest/loveclick.png";
 // import reply from "../assest/reply.png";
 // import spam from "../assest/spam.png"
-import ScrollableFeed from 'react-scrollable-feed'
-import { dev } from "../config/breakp";
+import ScrollableFeed from "react-scrollable-feed";
+import { dev } from "../../config/breakp";
 import { useEffect } from "react";
+import { color } from "../../config/theme";
 
 const PosRes = (prop) => {
   // const [click, setClick] = useState(false)
@@ -20,10 +22,9 @@ const PosRes = (prop) => {
   //   });
   // };
 
-
   useEffect(() => {
     // scrollToBottom()
-  }, [])
+  }, []);
 
   const data = prop.val;
   console.log(data);
@@ -60,7 +61,7 @@ const DataPrev = styled.div`
   padding: 0.5rem;
   margin: 1rem 1.5rem;
   border-radius: 1rem;
-  background-color: ${(props) => props.theme.lghtBgColor};
+  background-color: ${color.rBFogra};
 
   @media ${dev.mobileL} {
     width: 20rem;
@@ -73,9 +74,9 @@ const DataPrev = styled.div`
 `;
 
 const Username = styled.div`
-  color: ${(props) => props.theme.themeColor};
-  font-family: Archivo;
-  font-weight:700;
+  color: ${color.platinum};
+  font-family: "Roboto Mono";
+  font-weight: 700;
   letter-spacing: 0.06rem;
   font-size: 0.8rem;
   margin-left: 0.5rem;
@@ -85,9 +86,9 @@ const Username = styled.div`
 
 const Message = styled.p`
   margin: 0.5rem 0;
-  color: ${(props) => props.theme.fontCol};
-  font-family: Archivo;
-  font-weight:400;
+  color: ${color.lightgray};
+  font-family: "Roboto Mono";
+  font-weight: 400;
   letter-spacing: 0.03rem;
   padding: 0;
   text-align: center;

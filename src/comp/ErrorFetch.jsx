@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Result from "../comp/Result";
+import Result from "../comp/molecule/Result";
 import storm from "../assest/strom.svg";
 
 const ErrorFetch = (props) => {

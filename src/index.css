@@ -1,5 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Slab:wght@662&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600;700&display=swap');
+/* Available fonts : 
+  Roboto Slab : 662 *For heading
+  Lato : 400. 700  *For subheading and body
+  Inconsolata : 400, 500, 600, 700 
+  Roboto Mono: 400, 500, 600, 700*/ 
 
 html,
 body,
@@ -87,6 +94,7 @@ video {
   border: 0;
   font-size: 100%;
   vertical-align: baseline;
+  text-decoration: none;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -133,7 +141,7 @@ table {
 }
 
 body {
-  background-color: #2a2a2a;
+  background-color: #0A0A0A;
 }
 
 input:-webkit-autofill,

@@ -5,6 +5,7 @@ import firebase from "../../Firebase";
 import { dev } from "../../config/breakp";
 import { color } from "../../config/theme";
 import { v4 as uuidv4 } from "uuid";
+import { useAuth } from "../context/AuthContext";
 
 // var uniqid = require('uniqid');
 
@@ -15,6 +16,7 @@ const Post = () => {
 
   const [pending, setIsPending] = useState(false);
   const [unameErr, setUnameErr] = useState(false);
+
   // const [date, setDate] = useState("");
   // const [uuid, setUuid] = useState("");
 

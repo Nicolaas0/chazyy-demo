@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import "../../index.css";
 import menubar from "../../assest/menu.png";
 import { dev } from "../../config/breakp";
 import { color } from "../../config/theme";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 // import SignIn from "../SignIn";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    //add dependencies for l so it didnt create infinite loop
+  }, []);
 
   return (
     <Nav>

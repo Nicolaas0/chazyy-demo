@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useRef, useState } from "react";
 import { color } from "../config/theme";
 import { useAuth } from "../comp/context/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const SignInPage = () => {
   const emailRef = useRef();
@@ -11,6 +11,7 @@ const SignInPage = () => {
   const [loading, setLoading] = useState(false);
 
   const { signIn } = useAuth();
+  const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,6 +19,7 @@ const SignInPage = () => {
       setError("");
       setLoading(true);
       await signIn(emailRef.current.value, passRef.current.value);
+      history.push("/private");
     } catch {
       setError("Error while signing in.");
     }

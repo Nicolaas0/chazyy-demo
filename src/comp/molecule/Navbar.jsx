@@ -1,14 +1,20 @@
+// =============== REACT ================
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+// =============== REACT ================
+import styled from "styled-components"; //STYLED COMPONENTS
+// =============== IMPORT ================
 import "../../index.css";
 import menubar from "../../assest/menu.png";
 import { dev } from "../../config/breakp";
 import { color } from "../../config/theme";
 import { Link } from "react-router-dom";
-// import SignIn from "../SignIn";
+// =============== IMPORT ================
 
 const Navbar = () => {
+  
+  //===== DECLARING VARIABLES / STATE =====
   const [isOpen, setIsOpen] = useState(false);
+  //===== DECLARING VARIABLES / STATE =====
 
   useEffect(() => {
     //add dependencies for l so it didnt create infinite loop
@@ -32,6 +38,7 @@ const Navbar = () => {
           <Join>Join Now!</Join>
         </Link>
       </NavList>
+      
       {/* IMPORTANT!!! */}
       {/* FOR NEXT UPDATE! */}
       {/* {isOpen ? null : <Search placeholder="Search..." />} */}
@@ -42,10 +49,12 @@ const Navbar = () => {
         <Item href="">Contact</Item>
         <Join href="">Join Now!</Join>
       </NavList> */}
+
     </Nav>
   );
 };
 
+//========== STYLED COMPONENTS / CSS AREA ==========
 const Logo = styled.h1`
   font-family: "Roboto Mono";
   font-weight: 600;

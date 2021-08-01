@@ -1,38 +1,24 @@
+// =============== REACT ================
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+// =============== REACT ================
+import styled from "styled-components"; //STYLED COMPONENTS
+// =============== IMPORT ================
 import firebase from "../../Firebase";
-// import moment from "moment";
 import { dev } from "../../config/breakp";
 import { color } from "../../config/theme";
 import { v4 as uuidv4 } from "uuid";
 import { useAuth } from "../context/AuthContext";
-
-// var uniqid = require('uniqid');
+// =============== IMPORT ================
 
 const Post = () => {
+  //===== DECLARING VARIABLES / STATE =====
   const [username, setUsername] = useState("");
   const [message, setMessage] = useState("");
   const [id, setId] = useState("");
 
   const [pending, setIsPending] = useState(false);
   const [unameErr, setUnameErr] = useState(false);
-
-  // const [date, setDate] = useState("");
-  // const [uuid, setUuid] = useState("");
-
-  // const fixUname = (name) => {
-  //   if (name.includes(" ") && name.length > 15) {
-  //     console.log('P')
-  //     return null;
-  //   } else {
-  //    return setUsername(`@${name}`);
-  //   }
-  // };
-
-  // const dateGen = () => {
-  //   const vd = moment().format("MMMM Do YYYY, h:mm:ss a");
-  //   return setDate(vd);
-  // };
+  //===== DECLARING VARIABLES / STATE =====
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -58,7 +44,6 @@ const Post = () => {
   };
 
   useEffect(() => {
-    //add dependencies for l so it didnt create infinite loop
   }, []);
 
   return (
@@ -92,6 +77,7 @@ const Post = () => {
   );
 };
 
+//========== STYLED COMPONENTS / CSS AREA ==========
 const Container = styled.div`
   width: 27rem;
   height: 14rem;

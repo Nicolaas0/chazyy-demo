@@ -1,33 +1,23 @@
-// import React, { useState } from "react";
-import styled from "styled-components";
+// =============== REACT ================
+import React from "react";
+// =============== REACT ================
+import styled from "styled-components"; //STYLED COMPONENTS
+// =============== IMPORT ================
 import "../../index.css";
 import "../../config/theme";
-// import firebase from '../Firebase'
-// import love from "../assest/love.png";
-// import lovec from "../assest/loveclick.png";
-// import reply from "../assest/reply.png";
-// import spam from "../assest/spam.png"
 import ScrollableFeed from "react-scrollable-feed";
 import { dev } from "../../config/breakp";
 import { useEffect } from "react";
 import { color } from "../../config/theme";
+// =============== IMPORT ================
 
 const PosRes = (prop) => {
-  // const [click, setClick] = useState(false)
 
-  // const scrollToBottom = () => {
-  //   window.scrollTo({
-  //     bottom: 300,
-  //     behavior: "smooth",
-  //   });
-  // };
-
-  useEffect(() => {
-    // scrollToBottom()
-  }, []);
-
+  //===== DECLARING VARIABLES / STATE =====
   const data = prop.val;
-  console.log(data);
+  //===== DECLARING VARIABLES / STATE =====
+
+  useEffect(() => {}, []);
 
   return (
     <Container>
@@ -36,17 +26,6 @@ const PosRes = (prop) => {
           <DataPrev key={d.id}>
             <Username>{d.username}</Username>
             <Message className="message">{d.message}</Message>
-            {/* <IcCont>
-              <Icon src={spam}/>
-            </IcCont> */}
-            {/* <IcCont>
-            {click ? <Love onClick={()=>{
-              setClick(!click)
-            }} src={lovec}></Love> : <Love onClick={()=>{
-              setClick(!click)
-            }} src={love}></Love>}
-            <Reply src={reply}></Reply>
-          </IcCont> */}
           </DataPrev>
         ))}
       </ScrollableFeed>
@@ -54,6 +33,7 @@ const PosRes = (prop) => {
   );
 };
 
+//========== STYLED COMPONENTS / CSS AREA ==========
 const DataPrev = styled.div`
   padding: 0;
   width: 25rem;
@@ -121,24 +101,4 @@ const Container = styled.div`
   }
 `;
 
-// const Icon = styled.img`
-//   cursor:pointer;
-// `
-
-// const IcCont = styled.div`
-//   display: flex;
-//   justify-content: space-evenly;
-//   align-items: center;
-//   margin-top: 1rem;
-//   margin-bottom: 0.1rem;
-// `;
-
-// const Love = styled.img`
-//   width: auto;
-//   cursor: pointer;
-// `;
-
-// const Reply = styled.img`
-//   cursor: pointer;
-// `;
 export default PosRes;

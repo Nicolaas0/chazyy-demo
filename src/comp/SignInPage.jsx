@@ -19,7 +19,7 @@ const SignInPage = () => {
       setError("");
       setLoading(true);
       await signIn(emailRef.current.value, passRef.current.value);
-      history.push("/private");
+      history.push("/");
     } catch {
       setError("Error while signing in.");
     }

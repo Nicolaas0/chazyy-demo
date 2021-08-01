@@ -1,9 +1,13 @@
+// =============== REACT ================
 import React from "react";
-import styled from "styled-components";
+// =============== REACT ================
+import styled from "styled-components"; //STYLED COMPONENTS
+// =============== IMPORT ================
 import Navbar from "./molecule/Navbar";
 import Result from "./molecule/Result";
 import Post from "./molecule/Post";
 import Footer from "./molecule/Footer";
+// =============== IMPORT ================
 
 const ChazyyMain = () => {
   return (
@@ -30,6 +34,7 @@ const ChazyyMain = () => {
   );
 };
 
+//========== STYLED COMPONENTS / CSS AREA ==========
 const Container = styled.div`
   display: flex;
   flex-direction: column;

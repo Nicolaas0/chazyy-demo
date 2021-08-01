@@ -1,7 +1,11 @@
+// =============== REACT ================
 import React from "react";
-import styled from "styled-components";
+// =============== REACT ================
+import styled from "styled-components"; // STYLED COMPONENTS
+// =============== IMPORT ================
 import { dev } from "../../config/breakp";
 import { color } from "../../config/theme";
+// =============== IMPORT ================
 
 const Footer = () => {
   return (
@@ -40,6 +44,7 @@ const Footer = () => {
   );
 };
 
+//========== STYLED COMPONENTS / CSS AREA ==========
 const Container = styled.div`
   margin: 0;
   width: 100%;
@@ -60,7 +65,7 @@ const Link = styled.div`
   color: ${color.sonicSv};
   width: auto;
   height: auto;
-  font-family:"Roboto Mono";
+  font-family: "Roboto Mono";
   margin: 0.5rem;
   background-color: ${color.rBFogra};
   padding: 0.8rem;

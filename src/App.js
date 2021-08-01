@@ -17,7 +17,7 @@ function App() {
 
   return (
     <Router>
-      {/* <AuthProvider> */}
+      <AuthProvider>
         <ThemeProvider theme={theme}>
           <>
             <Helmet>
@@ -32,7 +32,7 @@ function App() {
             </Switch>
           </>
         </ThemeProvider>
-      {/* </AuthProvider> */}
+      </AuthProvider>
     </Router>
   );
 }

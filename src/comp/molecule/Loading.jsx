@@ -1,6 +1,10 @@
+// =============== REACT ================
 import React from "react";
-import styled from "styled-components";
+// =============== REACT ================
+import styled from "styled-components"; //STYLED COMPONENTS
+// =============== IMPORT ================
 import { dev } from "../../config/breakp";
+// =============== IMPORT ================
 
 const Loading = () => {
   return (
@@ -13,6 +17,7 @@ const Loading = () => {
   );
 };
 
+//========== STYLED COMPONENTS / CSS AREA ==========
 const Container = styled.div`
   margin-bottom: 1rem;
   display: flex;

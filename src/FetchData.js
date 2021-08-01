@@ -5,19 +5,6 @@ const FetchData = (ep) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [useId, setId] = useState("")
-
-  // const getId = () => {
-  //   firebase
-  //     .database()
-  //     .ref("Demo")
-  //     .once("value")
-  //     .then((snapshot) => {
-  //       var id = snapshot.key;
-  //       console.log(id)
-  //       setId(id);
-  //     });
-  // };
 
   const showData = () => {
 
@@ -43,7 +30,7 @@ const FetchData = (ep) => {
 
   useEffect(() => {
     showData(ep);
-  }, [ep]); //remove the data from dependencies, its because the infinity loop for fetching the data
+  }, [ep]);
   return { data, error, loading };
 };
 export default FetchData;

@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import firebase from "../../Firebase";
 
 const AuthContext = React.createContext();
@@ -33,6 +32,7 @@ export const AuthProvider = ({ children }) => {
   const value = {
     currentUser,
     signUp,
+    signIn,
   };
 
   return (

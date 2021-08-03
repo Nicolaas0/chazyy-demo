@@ -7,9 +7,13 @@ import Navbar from "./molecule/Navbar";
 import Result from "./molecule/Result";
 import Post from "./molecule/Post";
 import Footer from "./molecule/Footer";
+import { useAuth } from "./context/AuthContext";
+import PostPrivate from "./molecule/PostPrivate";
 // =============== IMPORT ================
 
 const ChazyyMain = () => {
+
+  const { currentUser } = useAuth();
   return (
     <Container>
       {/* Navbar Area */}
@@ -19,16 +23,16 @@ const ChazyyMain = () => {
       {/* End of Navbar area */}
 
       {/* Home Area */}
-      <Home>
-        <Second>
-          <Result />
-          <Post />
-        </Second>
-      </Home>
+      <Main>
+        <Result />
+        {currentUser ? <PostPrivate /> : <Post />}
+      </Main>
       {/* End of Home area */}
 
       {/* Footer Area */}
-      <Footer />
+      <Ft>
+        <Footer />
+      </Ft>
       {/* End of Footer Area */}
     </Container>
   );
@@ -39,32 +43,26 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
 `;
 
 const Nav = styled.div`
-  height: 100%;
-  width: 100%;
+  height: auto;
+  width: 100vw;
 `;
 
-const Home = styled.div`
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 1rem;
-`;
-
-const Second = styled.div`
-  height: 100%;
+const Main = styled.div`
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
 `;
 
+const Ft = styled.div`
+  height:auto;
+  width:100vw;
+`
 export default ChazyyMain;

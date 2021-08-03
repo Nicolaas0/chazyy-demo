@@ -40,6 +40,15 @@ const Footer = () => {
           Icons8
         </Web>
       </Link>
+      <Link>
+        <Icon target="_blank" href="https://icons8.com/icon/85940/sent">
+          Sent
+        </Icon>{" "}
+        icon by{" "}
+        <Web target="_blank" href="https://icons8.com">
+          Icons8
+        </Web>
+      </Link>
     </Container>
   );
 };

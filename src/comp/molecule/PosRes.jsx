@@ -9,18 +9,20 @@ import ScrollableFeed from "react-scrollable-feed";
 import { dev } from "../../config/breakp";
 import { useEffect } from "react";
 import { color } from "../../config/theme";
+import { useAuth } from "../context/AuthContext";
 // =============== IMPORT ================
 
 const PosRes = (prop) => {
 
   //===== DECLARING VARIABLES / STATE =====
   const data = prop.val;
+  const { currentUser } = useAuth();
   //===== DECLARING VARIABLES / STATE =====
 
   useEffect(() => {}, []);
 
   return (
-    <Container>
+    <Container currentUser={currentUser}>
       <ScrollableFeed>
         {data.map((d) => (
           <DataPrev key={d.id}>
@@ -83,7 +85,7 @@ const Container = styled.div`
   border-radius: 1rem;
   border: 0.2rem solid ${(props) => props.theme.utilBlack};
   background-color: ${(props) => props.theme.bgColor};
-  height: 15rem;
+  height: ${({ currentUser }) => (currentUser ? "65vh" : "40vh")};
   overflow-y: scroll;
   scroll-behavior: smooth;
   transition: 0.5s;

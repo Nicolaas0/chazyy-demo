@@ -8,12 +8,14 @@ import menubar from "../../assest/menu.png";
 import { dev } from "../../config/breakp";
 import { color } from "../../config/theme";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 // =============== IMPORT ================
 
 const Navbar = () => {
   
   //===== DECLARING VARIABLES / STATE =====
   const [isOpen, setIsOpen] = useState(false);
+  const { currentUser } = useAuth();
   //===== DECLARING VARIABLES / STATE =====
 
   useEffect(() => {
@@ -23,7 +25,13 @@ const Navbar = () => {
   return (
     <Nav>
       <Responsive>
-        <Logo>Chazyy</Logo>
+        {currentUser ? (
+          <Cu>
+            Hi, <Hl>{currentUser.email}</Hl>
+          </Cu>
+        ) : (
+          <Logo>Chazyy</Logo>
+        )}
         <Menu
           src={menubar}
           onClick={() => {
@@ -35,10 +43,10 @@ const Navbar = () => {
 
       <NavList isOpen={isOpen}>
         <Link to="/SignIn">
-          <Join>Join Now!</Join>
+          {currentUser ? <Join>Logout</Join> : <Join>Join Now!</Join>}
         </Link>
       </NavList>
-      
+
       {/* IMPORTANT!!! */}
       {/* FOR NEXT UPDATE! */}
       {/* {isOpen ? null : <Search placeholder="Search..." />} */}
@@ -49,7 +57,6 @@ const Navbar = () => {
         <Item href="">Contact</Item>
         <Join href="">Join Now!</Join>
       </NavList> */}
-
     </Nav>
   );
 };
@@ -187,4 +194,19 @@ const Responsive = styled.div`
   }
 `;
 
+const Cu = styled.div`
+  font-family: "Roboto Mono";
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: ${color.lightgray};
+  padding: 0.2rem;
+`;
+
+const Hl = styled.span`
+  font-family: "Roboto Mono";
+  background-color:${color.erie};
+  padding:0.3rem;
+  border-radius:0.5rem;
+  cursor:pointer;
+`;
 export default Navbar;

@@ -143,7 +143,7 @@ const Button = styled.button`
   }
 `;
 
-const TextArea = styled.textarea`
+const TextArea = styled.input`
   background-color: ${color.erie};
   color: ${color.lightgray};
   border: 0.18rem solid ${color.erie};

@@ -63,7 +63,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media ${dev.mobileM} {
+  @media ${dev.mobileL} {
     flex-direction: column;
   }
 `;

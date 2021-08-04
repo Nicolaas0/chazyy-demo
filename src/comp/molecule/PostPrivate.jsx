@@ -71,7 +71,6 @@ const PostPrivate = () => {
 
 //========== STYLED COMPONENTS / CSS AREA ==========
 const Container = styled.div`
-  width: auto;
   height: auto;
   border-radius: 1rem;
   position: relative;
@@ -87,15 +86,16 @@ const Container = styled.div`
 `;
 
 const TextArea = styled.textarea`
+  width: 80vw;
   background-color: ${color.bgColor};
   color: ${color.lightgray};
   font-family: "Roboto Mono";
   margin: 0.5rem 0;
   display: block;
   transition: 0.1s;
-  border:none;
+  border: none;
   resize: none;
-overflow-y:hidden;
+  overflow-y: hidden;
 `;
 
 const Send = styled.img`
@@ -105,6 +105,7 @@ const Send = styled.img`
 `;
 
 const ChCon = styled.form`
+  width: 40vw;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -112,6 +113,10 @@ const ChCon = styled.form`
   padding: 0.2rem;
   border-radius: 5px;
   background-color: ${color.bgColor};
-  border:${color.rbForga} 4px solid;
+  border: ${color.rbForga} 4px solid;
+
+  @media ${dev.mobileL} {
+    width: 80vw;
+  }
 `;
 export default PostPrivate;

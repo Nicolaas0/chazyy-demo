@@ -13,7 +13,6 @@ import { useAuth } from "../context/AuthContext";
 // =============== IMPORT ================
 
 const PosRes = (prop) => {
-
   //===== DECLARING VARIABLES / STATE =====
   const data = prop.val;
   const { currentUser } = useAuth();
@@ -38,20 +37,15 @@ const PosRes = (prop) => {
 //========== STYLED COMPONENTS / CSS AREA ==========
 const DataPrev = styled.div`
   padding: 0;
-  width: 25rem;
+  width: 30vw;
   height: auto;
   padding: 0.5rem;
   margin: 1rem 1.5rem;
   border-radius: 1rem;
   background-color: ${color.rBFogra};
 
-  @media ${dev.mobileL} {
-    width: 20rem;
-  }
-
-  @media ${dev.mobileM} {
-    width: 15rem;
-    font-size: 75%;
+  @media ${dev.tablet} {
+    width: 70vw;
   }
 `;
 
@@ -62,8 +56,11 @@ const Username = styled.div`
   letter-spacing: 0.06rem;
   font-size: 0.8rem;
   margin-left: 0.5rem;
-  font-size: 0.8rem;
   padding: 0;
+
+  @media${dev.mobileL} {
+    font-size: 3.5vw;
+  }
 `;
 
 const Message = styled.p`
@@ -74,12 +71,15 @@ const Message = styled.p`
   letter-spacing: 0.03rem;
   padding: 0;
   text-align: center;
+  @media${dev.mobileL} {
+    font-size: 3.2vw;
+  }
 `;
 
 const Container = styled.div`
   margin-bottom: 1rem;
   display: flex;
-  width: 30rem;
+  width: 40vw;
   flex-direction: column;
   align-items: center;
   border-radius: 1rem;
@@ -94,12 +94,8 @@ const Container = styled.div`
     border: 0.2rem ${(props) => props.theme.themeColor} solid;
   }
 
-  @media ${dev.mobileL} {
-    width: 25rem;
-  }
-
-  @media ${dev.mobileM} {
-    width: 20rem;
+  @media ${dev.tablet} {
+    width: 80vw;
   }
 `;
 

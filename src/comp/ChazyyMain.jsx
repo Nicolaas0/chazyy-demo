@@ -43,18 +43,18 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 `;
 
 const Nav = styled.div`
   height: auto;
-  width: 100vw;
+  width: 100%;
 `;
 
 const Main = styled.div`
-  height: 100vh;
-  width: 100%;
+  height: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -63,6 +63,6 @@ const Main = styled.div`
 
 const Ft = styled.div`
   height:auto;
-  width:100vw;
+  width:100%;
 `
 export default ChazyyMain;

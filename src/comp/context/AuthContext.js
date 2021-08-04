@@ -19,6 +19,10 @@ export const AuthProvider = ({ children }) => {
   const signIn = (email, pass) => {
     return auth.signInWithEmailAndPassword(email, pass);
   };
+  
+  const logout = () => {
+    return auth.signOut()
+  }
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {

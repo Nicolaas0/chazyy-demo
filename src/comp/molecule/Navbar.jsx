@@ -7,20 +7,23 @@ import "../../index.css";
 import menubar from "../../assest/menu.png";
 import { dev } from "../../config/breakp";
 import { color } from "../../config/theme";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 // =============== IMPORT ================
 
 const Navbar = () => {
-  
   //===== DECLARING VARIABLES / STATE =====
   const [isOpen, setIsOpen] = useState(false);
-  const { currentUser } = useAuth();
-  //===== DECLARING VARIABLES / STATE =====
+  const { currentUser, logout } = useAuth();
+  const history = useHistory();
+  //===== DECLARING VARIABLES / STATE ====
 
-  useEffect(() => {
-    //add dependencies for l so it didnt create infinite loop
-  }, []);
+  const handleLogout = async () => {
+    try {
+      await logout();
+      history.push("/SignUp");
+    } catch (error) {}
+  };
 
   return (
     <Nav>
@@ -43,7 +46,11 @@ const Navbar = () => {
 
       <NavList isOpen={isOpen}>
         <Link to="/SignIn">
-          {currentUser ? <Join>Logout</Join> : <Join>Join Now!</Join>}
+          {currentUser ? (
+            <Join onClick={handleLogout}>Logout</Join>
+          ) : (
+            <Join>Join Now!</Join>
+          )}
         </Link>
       </NavList>
 
@@ -126,6 +133,7 @@ const NavList = styled.ul`
   text-decoration: none;
 
   @media ${dev.tablet} {
+    margin-top:2.5vh;
     width: 100%;
     display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
     flex-direction: column;
@@ -173,10 +181,10 @@ const Join = styled.button`
 const Menu = styled.img`
   width: 25px;
   height: 25px;
+  margin: 0 0.5rem;
 
   @media ${dev.tablet} {
     display: relative;
-    margin: 0 0.5rem;
   }
 
   @media (min-width: 769px) {
@@ -195,18 +203,21 @@ const Responsive = styled.div`
 `;
 
 const Cu = styled.div`
+  margin: 0 0.5rem;
   font-family: "Roboto Mono";
   font-weight: 600;
-  font-size: 1.1rem;
   color: ${color.lightgray};
   padding: 0.2rem;
+  @media ${dev.mobileL} {
+    font-size: 4vw;
+  }
 `;
 
 const Hl = styled.span`
   font-family: "Roboto Mono";
-  background-color:${color.erie};
-  padding:0.3rem;
-  border-radius:0.5rem;
-  cursor:pointer;
+  background-color: ${color.erie};
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
 `;
 export default Navbar;

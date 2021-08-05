@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { color } from "../config/theme";
 import { useAuth } from "../comp/context/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import { dev } from "../config/breakp";
 
 const SignInPage = () => {
   const emailRef = useRef();
@@ -32,21 +33,19 @@ const SignInPage = () => {
         Chazyy / <Span>Log in</Span>
       </Heading>
       <Container>
-        <FormCon>
-          <Form onSubmit={handleSubmit}>
-            <Input type="text" placeholder="Email" ref={emailRef} />
-            <Input type="password" placeholder="Password" ref={passRef} />
-            {loading ? <Button>Loading...</Button> : <Button>Sign In</Button>}
-            <ForDonPass>
-              New to Chazyy?{" "}
-              <Link to="/SignUp">
-                <Text>Click Here!</Text>
-              </Link>
-            </ForDonPass>
-            <Warning error={error}>{error}</Warning>
-            {/* {error ? <Warning>{error}</Warning> : null} */}
-          </Form>
-        </FormCon>
+        <Form onSubmit={handleSubmit}>
+          <Input type="text" placeholder="Email" ref={emailRef} />
+          <Input type="password" placeholder="Password" ref={passRef} />
+          {loading ? <Button>Loading...</Button> : <Button>Sign In</Button>}
+          <ForDonPass>
+            New to Chazyy?{" "}
+            <Link to="/SignUp">
+              <Text>Click Here!</Text>
+            </Link>
+          </ForDonPass>
+          <Warning error={error}>{error}</Warning>
+          {/* {error ? <Warning>{error}</Warning> : null} */}
+        </Form>
       </Container>
       <TipCon>
         <TipH>TIP:</TipH>
@@ -65,6 +64,10 @@ const Container = styled.div`
   height: 50vh;
   border-radius: 8px;
   background-color: ${color.rBFogra};
+
+  @media ${dev.tablet} {
+    width: 70vw;
+  }
 `;
 
 const FormCon = styled.div`
@@ -94,6 +97,10 @@ const Input = styled.input`
 
   &:focus {
     border: 0.3rem solid ${(props) => props.theme.themeColor};
+  }
+
+  @media${dev.tablet} {
+    width: 50vw;
   }
 `;
 
@@ -135,6 +142,10 @@ const Heading = styled.div`
   margin-top: 1rem;
   font-weight: 700;
   color: ${color.lightgray};
+
+  @media${dev.tablet} {
+    font-size: 5vw;
+  }
 `;
 
 const TipCon = styled.div`
@@ -146,6 +157,10 @@ const TipCon = styled.div`
   justfiy-content: center;
   align-items: center;
   border: 2px ${color.erie} dashed;
+
+  @media${dev.tablet} {
+    width: 50vw;
+  }
 `;
 const TipH = styled.div`
   font-family: "Roboto Mono";
@@ -176,14 +191,25 @@ const ForDonPass = styled.div`
   font-family: "Roboto Mono";
   font-size: 0.8rem;
   color: ${color.sonicSv};
+  width: 100%;
+  text-align: center;
+  @media ${dev.tablet} {
+    font-size: 3vw;
+  }
 `;
 
 const Text = styled.span`
+  display: block;
+  text-align: center;
   font-family: "Roboto Mono";
   font-size: 0.8rem;
   color: ${color.cultured};
   text-decoration: none;
-  margin: 0;
+  margin: 0.3rem 0;
   padding: 0;
+
+  @media${dev.tablet} {
+    font-size: 3vw;
+  }
 `;
 export default SignInPage;

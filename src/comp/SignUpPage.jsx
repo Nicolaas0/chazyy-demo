@@ -4,6 +4,7 @@ import { color } from "../config/theme";
 import { useAuth } from "../comp/context/AuthContext";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
+import { dev } from "../config/breakp";
 
 const SignUpPage = () => {
   const emailRef = useRef();
@@ -38,24 +39,25 @@ const SignUpPage = () => {
         Chazyy / <Span>Register</Span>
       </Heading>
       <Container>
-        <FormCon>
-          <Form onSubmit={handleSubmit}>
-            <Input type="text" placeholder="Email" ref={emailRef} />
-            <Input type="password" placeholder="Password" ref={passRef} />
-            <Input
-              className="repass"
-              type="password"
-              placeholder="Re-Password"
-              ref={repassRef}
-            />
-            <Warning error={error}>{error}</Warning>
-            {loading ? <Button>Loading...</Button> : <Button>Sign Up</Button>}
-            <ForDonPass>
-              Already have an account? <Link to="/SignIn"><Text>Click Here!</Text></Link>
-            </ForDonPass>
-            {/* {error ? <Warning>{error}</Warning> : null} */}
-          </Form>
-        </FormCon>
+        <Form onSubmit={handleSubmit}>
+          <Input type="text" placeholder="Email" ref={emailRef} />
+          <Input type="password" placeholder="Password" ref={passRef} />
+          <Input
+            className="repass"
+            type="password"
+            placeholder="Re-Password"
+            ref={repassRef}
+          />
+          <Warning error={error}>{error}</Warning>
+          {loading ? <Button>Loading...</Button> : <Button>Sign Up</Button>}
+          <ForDonPass>
+            <Text> Already have an account? </Text>
+            <Link to="/SignIn">
+              <Text>Click Here!</Text>
+            </Link>
+          </ForDonPass>
+          {/* {error ? <Warning>{error}</Warning> : null} */}
+        </Form>
       </Container>
       <TipCon>
         <TipH>TIP:</TipH>
@@ -77,10 +79,10 @@ const Container = styled.div`
   height: 50vh;
   border-radius: 8px;
   background-color: ${color.rBFogra};
-`;
 
-const FormCon = styled.div`
-  width: 25vw;
+  @media ${dev.tablet} {
+    width: 70vw;
+  }
 `;
 
 const Form = styled.form`
@@ -106,6 +108,10 @@ const Input = styled.input`
 
   &:focus {
     border: 0.3rem solid ${(props) => props.theme.themeColor};
+  }
+
+  @media${dev.tablet} {
+    width: 50vw;
   }
 `;
 
@@ -147,6 +153,10 @@ const Heading = styled.div`
   margin-top: 1rem;
   font-weight: 700;
   color: ${color.lightgray};
+
+  @media${dev.tablet} {
+    font-size: 5vw;
+  }
 `;
 
 const TipCon = styled.div`
@@ -158,6 +168,10 @@ const TipCon = styled.div`
   justfiy-content: center;
   align-items: center;
   border: 2px ${color.erie} dashed;
+
+  @media${dev.tablet} {
+    width: 50vw;
+  }
 `;
 const TipH = styled.div`
   font-family: "Roboto Mono";
@@ -185,17 +199,29 @@ const Warning = styled.span`
 `;
 
 const ForDonPass = styled.div`
-  font-family:"Roboto Mono";
-  font-size:0.8rem;
-  color:${color.sonicSv};
+  font-family: "Roboto Mono";
+  font-size: 0.8rem;
+  color: ${color.sonicSv};
+  width: 100%;
+  text-align: center;
+
+  @media ${dev.tablet} {
+    font-size: 3vw;
+  }
 `;
 
 const Text = styled.span`
+  display: block;
+  text-align: center;
   font-family: "Roboto Mono";
   font-size: 0.8rem;
-  color:${color.cultured};
-  text-decoration:none;
-  margin:0;
-  padding:0;
+  color: ${color.cultured};
+  text-decoration: none;
+  margin: 0.3rem 0;
+  padding: 0;
+
+  @media${dev.tablet} {
+    font-size: 3vw;
+  }
 `;
 export default SignUpPage;

@@ -36,7 +36,10 @@ const SignUpPage = () => {
   return (
     <Div>
       <Heading>
-        Chazyy / <Span>Register</Span>
+        <Link to="/Index">
+          <Redir> Chazyy</Redir>{" "}
+        </Link>
+        / <Span>Register</Span>
       </Heading>
       <Container>
         <Form onSubmit={handleSubmit}>
@@ -223,5 +226,10 @@ const Text = styled.span`
   @media${dev.tablet} {
     font-size: 3vw;
   }
+`;
+
+const Redir = styled.span`
+  font-family: "Roboto Mono";
+  color:${color.lightgray}
 `;
 export default SignUpPage;

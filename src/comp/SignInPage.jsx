@@ -30,7 +30,10 @@ const SignInPage = () => {
   return (
     <Div>
       <Heading>
-        Chazyy / <Span>Log in</Span>
+        <Link to="/Index">
+          <Redir>Chazyy</Redir>
+        </Link>{" "}
+        / <Span>Log in</Span>
       </Heading>
       <Container>
         <Form onSubmit={handleSubmit}>
@@ -211,5 +214,10 @@ const Text = styled.span`
   @media${dev.tablet} {
     font-size: 3vw;
   }
+`;
+
+const Redir = styled.span`
+  font-family: "Roboto Mono";
+  color: ${color.lightgray};
 `;
 export default SignInPage;

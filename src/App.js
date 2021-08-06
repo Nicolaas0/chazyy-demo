@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import PrivateRoute from "./PrivateRoute";
 import { ThemeProvider } from "styled-components";
 import * as theme from "./config/theme";
+import Index from "./comp/Index";
 // import logo from './assest/logo.png'
 // import Profile from './comp/Profile';
 // import Loading from './comp/Loading';
@@ -29,6 +30,7 @@ function App() {
               <PrivateRoute exact path="/private" component={ChazyyMain} />
               <Route path="/SignIn" component={SignInPage} />
               <Route path="/SignUp" component={SignUpPage} />
+              <Route path="/Index" component={Index}/>
             </Switch>
           </>
         </ThemeProvider>

@@ -20,6 +20,7 @@ export const AuthProvider = ({ children }) => {
     return auth.signInWithEmailAndPassword(email, pass);
   };
   
+  // eslint-disable-next-line no-unused-vars
   const logout = () => {
     return auth.signOut()
   }
@@ -32,6 +33,7 @@ export const AuthProvider = ({ children }) => {
     });
 
     return unsubscribe;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const value = {

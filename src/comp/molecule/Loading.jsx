@@ -4,6 +4,7 @@ import React from "react";
 import styled from "styled-components"; //STYLED COMPONENTS
 // =============== IMPORT ================
 import { dev } from "../../config/breakp";
+import { color } from "../../config/theme";
 // =============== IMPORT ================
 
 const Loading = () => {
@@ -11,7 +12,7 @@ const Loading = () => {
     <Container>
       <DataPrev>
         <Username>@ChazyyAdmin</Username>
-        <Message>Your content is loading, please wait..</Message>
+        <Message>Your content is loading..</Message>
       </DataPrev>
     </Container>
   );
@@ -26,63 +27,62 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   border-radius: 1rem;
-  border: 0.2rem solid ${(props) => props.theme.utilBlack};
-  background-color: ${(props) => props.theme.bgColor};
-  height: 15rem;
+  border: 0.2rem solid ${color.rBFograp};
+  background-color: ${color.bgColor};
+  height: ${({ currentUser }) => (currentUser ? "65vh" : "40vh")};
   overflow-y: scroll;
   overflow-x: none;
   scroll-behavior: smooth;
   transition: 0.5s;
 
   &:hover {
-    border: 0.17rem ${(props) => props.theme.themeColor} solid;
+    border: 0.2rem ${color.themecol} solid;
   }
 
-  @media ${dev.mobileL} {
-    width: 25rem;
-  }
-
-  @media ${dev.mobileM} {
-    width: 20rem;
+  @media ${dev.tablet} {
+    width: 80vw;
   }
 `;
 
 const DataPrev = styled.div`
   padding: 0;
-  width: 25rem;
+  width: 30vw;
   height: auto;
   padding: 0.5rem;
   margin: 1rem 1.5rem;
   border-radius: 1rem;
-  background-color: ${(props) => props.theme.lghtBgColor};
+  background-color: ${color.rBFogra};
 
-  @media ${dev.mobileL} {
-    width: 20rem;
-  }
-
-  @media ${dev.mobileM} {
-    width: 15rem;
-    font-size: 75%;
+  @media ${dev.tablet} {
+    width: 70vw;
   }
 `;
 
 const Username = styled.div`
-  color: ${(props) => props.theme.themeColor};
-  font-family: Archivo;
+  color: ${color.platinum};
+  font-family: "Roboto Mono";
+  font-weight: 700;
   letter-spacing: 0.06rem;
   font-size: 0.8rem;
   margin-left: 0.5rem;
-  font-size: 0.8rem;
   padding: 0;
+
+  @media${dev.mobileL} {
+    font-size: 3.5vw;
+  }
 `;
 
-const Message = styled.div`
+const Message = styled.p`
   margin: 0.5rem 0;
-  color: ${(props) => props.theme.fontCol};
-  font-family: Archivo;
-  letter-spacing: 0.05rem;
+  color: ${color.lightgray};
+  font-family: "Roboto Mono";
+  font-weight: 400;
+  letter-spacing: 0.03rem;
   padding: 0;
   text-align: center;
+  @media${dev.mobileL} {
+    font-size: 3.2vw;
+  }
 `;
 
 export default Loading;

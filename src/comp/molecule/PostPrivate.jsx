@@ -13,12 +13,15 @@ import sent from "../../assest/sent.png";
 
 const PostPrivate = () => {
   //===== DECLARING VARIABLES / STATE =====
+  // eslint-disable-next-line no-unused-vars
   const [username, setUsername] = useState("");
   const [message, setMessage] = useState("");
   const [id, setId] = useState("");
   const { currentUser } = useAuth();
 
+  // eslint-disable-next-line no-unused-vars
   const [pending, setIsPending] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [unameErr, setUnameErr] = useState(false);
   //===== DECLARING VARIABLES / STATE =====
 
@@ -80,7 +83,7 @@ const Container = styled.div`
   align-items: center;
   margin-bottom: 1rem;
 
-  @media ${dev.mobileL} {
+  @media ${dev.tablet} {
     width: 20rem;
   }
 `;
@@ -113,9 +116,9 @@ const ChCon = styled.form`
   padding: 0.2rem;
   border-radius: 5px;
   background-color: ${color.bgColor};
-  border: ${color.rbForga} 4px solid;
+  border: ${color.rbForgap} 3px solid;
 
-  @media ${dev.mobileL} {
+  @media ${dev.tablet} {
     width: 80vw;
   }
 `;

@@ -83,15 +83,15 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   border-radius: 1rem;
-  border: 0.2rem solid ${(props) => props.theme.utilBlack};
-  background-color: ${(props) => props.theme.bgColor};
+  border: 0.2rem solid ${color.rBFograp};
+  background-color: ${color.bgColor};
   height: ${({ currentUser }) => (currentUser ? "65vh" : "40vh")};
   overflow-y: scroll;
   scroll-behavior: smooth;
   transition: 0.5s;
 
   &:hover {
-    border: 0.2rem ${(props) => props.theme.themeColor} solid;
+    border: 0.2rem ${color.themecol} solid;
   }
 
   @media ${dev.tablet} {

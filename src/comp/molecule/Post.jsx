@@ -7,6 +7,7 @@ import firebase from "../../Firebase";
 import { dev } from "../../config/breakp";
 import { color } from "../../config/theme";
 import { v4 as uuidv4 } from "uuid";
+// eslint-disable-next-line no-unused-vars
 import { useAuth } from "../context/AuthContext";
 // =============== IMPORT ================
 
@@ -16,7 +17,9 @@ const Post = () => {
   const [message, setMessage] = useState("");
   const [id, setId] = useState("");
 
+  // eslint-disable-next-line no-unused-vars
   const [pending, setIsPending] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [unameErr, setUnameErr] = useState(false);
   //===== DECLARING VARIABLES / STATE =====
 
@@ -68,10 +71,10 @@ const Post = () => {
             onChange={(e) => setMessage(e.target.value)}
           />
         </Block>
-        {unameErr && <Warn>Dont use space in Username!</Warn>}
+        {/* {unameErr && <Warn>Dont use space in Username!</Warn>}
         {!unameErr && ""}
         {!pending && <Button>Post</Button>}
-        {pending && <Button>Adding</Button>}
+        {pending && <Button>Adding</Button>} */}
       </form>
     </Container>
   );
@@ -124,24 +127,24 @@ const Input = styled.input`
   }
 `;
 
-const Button = styled.button`
-  border: 0.18rem solid ${color.sonicSv};
-  padding: 0.2rem 0;
-  background-color: ${color.rBFogra};
-  color: ${color.lightgray};
-  padding: 0.2rem 0.5rem;
-  transition: 0.5s;
-  cursor: pointer;
-  width: 5rem;
-  transition: 0.1s;
-  font-family: "Roboto Mono";
+// const Button = styled.button`
+//   border: 0.18rem solid ${color.sonicSv};
+//   padding: 0.2rem 0;
+//   background-color: ${color.rBFogra};
+//   color: ${color.lightgray};
+//   padding: 0.2rem 0.5rem;
+//   transition: 0.5s;
+//   cursor: pointer;
+//   width: 5rem;
+//   transition: 0.1s;
+//   font-family: "Roboto Mono";
 
-  &:hover {
-    width: 6rem;
-    border: 0.18rem solid ${(props) => props.theme.themeColor};
-    color: ${(props) => props.theme.themeColor};
-  }
-`;
+//   &:hover {
+//     width: 6rem;
+//     border: 0.18rem solid ${(props) => props.theme.themeColor};
+//     color: ${(props) => props.theme.themeColor};
+//   }
+// `;
 
 const TextArea = styled.input`
   background-color: ${color.erie};
@@ -153,16 +156,12 @@ const TextArea = styled.input`
   transition: 0.1s;
   border-radius: 0.3rem;
   resize: none;
-
-  &:focus {
-    border: 0.18rem solid ${(props) => props.theme.themeColor};
-  }
 `;
 
-const Warn = styled.div`
-  font-family: Archivo;
-  color: ${(props) => props.theme.utilCol};
-  margin-bottom: 0.4rem;
-`;
+// const Warn = styled.div`
+//   font-family: Archivo;
+//   color: ${(props) => props.theme.utilCol};
+//   margin-bottom: 0.4rem;
+// `;
 
 export default Post;

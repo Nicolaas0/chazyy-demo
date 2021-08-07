@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -8,7 +9,9 @@ const Index = () => {
   return (
     <Container>
       <Title>Chazyy</Title>
-      <Desc>chat with [expression]</Desc>
+      <Desc>
+        chat with <Span>[expression]</Span>
+      </Desc>
       <BtnCon>
         <Link to="/SignUp">
           <Button>regist</Button>
@@ -79,10 +82,11 @@ const Button = styled.button`
   border: ${color.sonicSv} 2px solid;
   color: ${color.sonicSv};
   cursor: pointer;
-  transition: 0.1s;
+  transition: 0.3s;
 
   &:hover {
-    border: ${color.lightgray} 2px solid;
+    border: ${color.themecol} 2px solid;
+    color:${color.themecol};
   }
 
   @media ${dev.tablet} {
@@ -126,4 +130,9 @@ const Creator = styled.div`
     font-size: 3vw;
   }
 `;
+
+const Span = styled.span`
+  color:${color.themecol};
+  font-family:"Roboto Mono";
+`
 export default Index;

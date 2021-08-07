@@ -1,4 +1,5 @@
 // =============== REACT ================
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 // =============== REACT ================
 import styled from "styled-components"; //STYLED COMPONENTS

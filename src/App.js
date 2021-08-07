@@ -3,7 +3,8 @@ import Helmet from "react-helmet";
 import SignInPage from "./comp/SignInPage";
 import SignUpPage from "./comp/SignUpPage";
 import ChazyyMain from './comp/ChazyyMain';
-import { AuthProvider } from "./comp/context/AuthContext";
+// eslint-disable-next-line no-unused-vars
+import { AuthProvider, useAuth } from "./comp/context/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import PrivateRoute from "./PrivateRoute";
 import { ThemeProvider } from "styled-components";
@@ -26,11 +27,11 @@ function App() {
               {/* <link rel="icon" type="image/png" href={logo} /> */}
             </Helmet>
             <Switch>
-              <Route exact path="/" component={ChazyyMain} />
+              <Route exact path="/Chazyy" component={ChazyyMain} />
               <PrivateRoute exact path="/private" component={ChazyyMain} />
               <Route path="/SignIn" component={SignInPage} />
               <Route path="/SignUp" component={SignUpPage} />
-              <Route path="/Index" component={Index}/>
+              <Route exact path="/" component={Index}/>
             </Switch>
           </>
         </ThemeProvider>

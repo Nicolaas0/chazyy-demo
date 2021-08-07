@@ -1,5 +1,6 @@
 // =============== REACT ================
-import React from "react";
+// eslint-disable-next-line no-unused-vars
+import React, { useState } from "react";
 // =============== REACT ================
 import styled from "styled-components"; //STYLED COMPONENTS
 // =============== IMPORT ================
@@ -9,11 +10,13 @@ import Post from "./molecule/Post";
 import Footer from "./molecule/Footer";
 import { useAuth } from "./context/AuthContext";
 import PostPrivate from "./molecule/PostPrivate";
+// eslint-disable-next-line no-unused-vars
+import { useParams } from "react-router";
 // =============== IMPORT ================
 
 const ChazyyMain = () => {
-
   const { currentUser } = useAuth();
+
   return (
     <Container>
       {/* Navbar Area */}
@@ -62,7 +65,7 @@ const Main = styled.div`
 `;
 
 const Ft = styled.div`
-  height:auto;
-  width:100%;
-`
+  height: auto;
+  width: 100%;
+`;
 export default ChazyyMain;

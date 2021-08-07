@@ -20,7 +20,7 @@ const SignInPage = () => {
       setError("");
       setLoading(true);
       await signIn(emailRef.current.value, passRef.current.value);
-      history.push("/");
+      history.push("/Chazyy/");
     } catch {
       setError("Error while signing in.");
     }
@@ -30,7 +30,7 @@ const SignInPage = () => {
   return (
     <Div>
       <Heading>
-        <Link to="/Index">
+        <Link to="/">
           <Redir>Chazyy</Redir>
         </Link>{" "}
         / <Span>Log in</Span>
@@ -73,10 +73,6 @@ const Container = styled.div`
   }
 `;
 
-const FormCon = styled.div`
-  width: 25vw;
-`;
-
 const Form = styled.form`
   width: 100%;
   display: flex;
@@ -99,7 +95,7 @@ const Input = styled.input`
   font-family: "Roboto Mono";
 
   &:focus {
-    border: 0.3rem solid ${(props) => props.theme.themeColor};
+    border: 0.3rem solid ${color.platnium};
   }
 
   @media${dev.tablet} {
@@ -122,9 +118,6 @@ const Button = styled.button`
 
   &:hover {
     width: 6rem;
-
-    border: 0.2rem solid ${(props) => props.theme.themeColor};
-    color: ${(props) => props.theme.themeColor};
   }
 `;
 
@@ -188,6 +181,7 @@ const Warning = styled.span`
   margin: 0;
   font-family: "Roboto Mono";
   color: ${color.warning};
+  font-size:1vw;
 `;
 
 const ForDonPass = styled.div`
@@ -206,7 +200,7 @@ const Text = styled.span`
   text-align: center;
   font-family: "Roboto Mono";
   font-size: 0.8rem;
-  color: ${color.cultured};
+  color: ${color.themecol};
   text-decoration: none;
   margin: 0.3rem 0;
   padding: 0;

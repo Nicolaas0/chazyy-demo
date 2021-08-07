@@ -36,7 +36,7 @@ const SignUpPage = () => {
   return (
     <Div>
       <Heading>
-        <Link to="/Index">
+        <Link to="/">
           <Redir> Chazyy</Redir>{" "}
         </Link>
         / <Span>Register</Span>
@@ -51,14 +51,14 @@ const SignUpPage = () => {
             placeholder="Re-Password"
             ref={repassRef}
           />
-          <Warning error={error}>{error}</Warning>
-          {loading ? <Button>Loading...</Button> : <Button>Sign Up</Button>}
+          {loading ? <Button>Loading</Button> : <Button>Sign Up</Button>}
           <ForDonPass>
-            <Text> Already have an account? </Text>
+            Already have an account?
             <Link to="/SignIn">
               <Text>Click Here!</Text>
             </Link>
           </ForDonPass>
+          <Warning error={error}>{error}</Warning>
           {/* {error ? <Warning>{error}</Warning> : null} */}
         </Form>
       </Container>
@@ -110,7 +110,7 @@ const Input = styled.input`
   font-family: "Roboto Mono";
 
   &:focus {
-    border: 0.3rem solid ${(props) => props.theme.themeColor};
+    border: 0.3rem solid ${color.platinum};
   }
 
   @media${dev.tablet} {
@@ -133,9 +133,6 @@ const Button = styled.button`
 
   &:hover {
     width: 6rem;
-
-    border: 0.2rem solid ${(props) => props.theme.themeColor};
-    color: ${(props) => props.theme.themeColor};
   }
 `;
 
@@ -196,9 +193,9 @@ const Span = styled.span`
 
 const Warning = styled.span`
   display: ${(error) => (error ? "block" : "none")};
-  margin: 0;
   font-family: "Roboto Mono";
   color: ${color.warning};
+  font-size:1vw;
 `;
 
 const ForDonPass = styled.div`
@@ -218,7 +215,7 @@ const Text = styled.span`
   text-align: center;
   font-family: "Roboto Mono";
   font-size: 0.8rem;
-  color: ${color.cultured};
+  color: ${color.themecol};
   text-decoration: none;
   margin: 0.3rem 0;
   padding: 0;
@@ -230,6 +227,6 @@ const Text = styled.span`
 
 const Redir = styled.span`
   font-family: "Roboto Mono";
-  color:${color.lightgray}
+  color: ${color.lightgray};
 `;
 export default SignUpPage;

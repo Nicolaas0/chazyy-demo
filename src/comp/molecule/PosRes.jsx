@@ -10,6 +10,7 @@ import { dev } from "../../config/breakp";
 import { useEffect } from "react";
 import { color } from "../../config/theme";
 import { useAuth } from "../context/AuthContext";
+import FetchData from "../../FetchData";
 // =============== IMPORT ================
 
 const PosRes = (prop) => {
@@ -23,8 +24,8 @@ const PosRes = (prop) => {
   return (
     <Container currentUser={currentUser}>
       <ScrollableFeed>
-        {data.map((d) => (
-          <DataPrev key={d.id}>
+        {data.map((d, index) => (
+          <DataPrev key={index}>
             <Username>{d.username}</Username>
             <Message className="message">{d.message}</Message>
           </DataPrev>

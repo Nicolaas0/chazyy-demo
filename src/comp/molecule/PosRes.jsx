@@ -10,6 +10,7 @@ import { dev } from "../../config/breakp";
 import { useEffect } from "react";
 import { color } from "../../config/theme";
 import { useAuth } from "../context/AuthContext";
+// eslint-disable-next-line no-unused-vars
 import FetchData from "../../FetchData";
 // =============== IMPORT ================
 

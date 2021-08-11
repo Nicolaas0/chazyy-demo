@@ -10,6 +10,8 @@ const SignInPage = () => {
   const passRef = useRef();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const { currentUser } = useAuth();
 
   const { signIn } = useAuth();
   const history = useHistory();
@@ -20,7 +22,7 @@ const SignInPage = () => {
       setError("");
       setLoading(true);
       await signIn(emailRef.current.value, passRef.current.value);
-      history.push("/Chazyy/");
+      history.push(`/Chazyy/`);
     } catch {
       setError("Error while signing in.");
     }

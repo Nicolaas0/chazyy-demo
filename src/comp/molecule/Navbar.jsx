@@ -31,7 +31,10 @@ const Navbar = () => {
       <Responsive>
         {currentUser ? (
           <Cu>
-            Hi, <Hl>{currentUser.email}</Hl>
+            Hi,{" "}
+            <Link to="/Chazyy/Profile/">
+              <Hl>{currentUser.email}</Hl>
+            </Link>
           </Cu>
         ) : (
           <Logo>Chazyy</Logo>
@@ -134,7 +137,7 @@ const NavList = styled.ul`
   text-decoration: none;
 
   @media ${dev.tablet} {
-    margin-top:2.5vh;
+    margin-top: 2.5vh;
     width: 100%;
     display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
     flex-direction: column;
@@ -217,6 +220,7 @@ const Cu = styled.div`
 const Hl = styled.span`
   font-family: "Roboto Mono";
   background-color: ${color.erie};
+  color:${color.lightgray};
   padding: 0.3rem;
   border-radius: 0.5rem;
   cursor: pointer;

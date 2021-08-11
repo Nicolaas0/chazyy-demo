@@ -154,7 +154,7 @@ const TextArea = styled.input`
   margin: 0.5rem 0;
   display: block;
   transition: 0.1s;
-  border-radius: 0.3rem;
+  border-radius: 0.5rem;
   resize: none;
 `;
 

@@ -114,7 +114,7 @@ const ChCon = styled.form`
   justify-content: center;
   align-items: center;
   padding: 0.2rem;
-  border-radius: 5px;
+  border-radius: 7px;
   background-color: ${color.bgColor};
   border: ${color.rbForgap} 3px solid;
 

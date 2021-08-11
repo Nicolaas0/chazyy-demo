@@ -19,6 +19,10 @@ export const AuthProvider = ({ children }) => {
   const signIn = (email, pass) => {
     return auth.signInWithEmailAndPassword(email, pass);
   };
+
+    const updateEmail = (email) => {
+      return auth.currentUser.updateEmail(email);
+    };
   
   // eslint-disable-next-line no-unused-vars
   const logout = () => {
@@ -40,6 +44,7 @@ export const AuthProvider = ({ children }) => {
     currentUser,
     signUp,
     signIn,
+    updateEmail
   };
 
   return (

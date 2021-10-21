@@ -1,37 +1,54 @@
 import styled from "styled-components";
+// eslint-disable-next-line no-unused-vars
 import { useRef, useState } from "react";
 import { color } from "../config/theme";
-import { useAuth } from "../comp/context/AuthContext";
-import { useHistory } from "react-router";
+// import { useAuth } from "../comp/context/AuthContext";
+// import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { dev } from "../config/breakp";
+// import axios from "axios";
 
 const SignUpPage = () => {
   const emailRef = useRef();
   const passRef = useRef();
   const repassRef = useRef();
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const history = useHistory();
+  // const [error, setError] = useState(false);
+  // const [loading, setLoading] = useState(false);
+  // const history = useHistory();
 
-  const { signUp } = useAuth();
+  // const { signUp } = useAuth();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (passRef.current.value !== repassRef.current.value) {
-      return setError("The password did not match!");
-    }
+  // const addUserToFirestore = (x, y) => {
+  //   axios
+  //     .post("/chazyy/user/new", {
+  //       username: x,
+  //       password: y,
+  //     })
+  //     .then((response) => {
+  //       console.log(response);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
-    try {
-      setError("");
-      setLoading(true);
-      await signUp(emailRef.current.value, passRef.current.value);
-      history.push("/SignIn");
-    } catch {
-      setError("Error while signing up.");
-    }
-    setLoading(false);
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   if (passRef.current.value !== repassRef.current.value) {
+  //     return setError("The password did not match!");
+  //   }
+
+  //   try {
+  //     setError("");
+  //     setLoading(true);
+  //     await signUp(emailRef.current.value, passRef.current.value);
+  //     addUserToFirestore(emailRef.current.value, passRef.current.value);
+  //     history.push("/SignIn");
+  //   } catch {
+  //     setError("Error while signing up.");
+  //   }
+  //   setLoading(false);
+  // };
 
   return (
     <Div>
@@ -42,23 +59,35 @@ const SignUpPage = () => {
         / <Span>Register</Span>
       </Heading>
       <Container>
-        <Form onSubmit={handleSubmit}>
-          <Input type="text" placeholder="Email" ref={emailRef} />
-          <Input type="password" placeholder="Password" ref={passRef} />
+        <Form action="/user/new" method="POST">
+          <Input
+            required
+            type="text"
+            placeholder="Email"
+            name="user[username]"
+            ref={emailRef}
+          />
+          <Input
+            required
+            type="password"
+            placeholder="Password"
+            name="user[password]"
+            ref={passRef}
+          />
           <Input
             className="repass"
             type="password"
             placeholder="Re-Password"
             ref={repassRef}
           />
-          {loading ? <Button>Loading</Button> : <Button>Sign Up</Button>}
+          <Button>Sign Up</Button>
           <ForDonPass>
             Already have an account?
             <Link to="/SignIn">
               <Text>Click Here!</Text>
             </Link>
           </ForDonPass>
-          <Warning error={error}>{error}</Warning>
+          {/* <Warning error={error}>{error}</Warning> */}
           {/* {error ? <Warning>{error}</Warning> : null} */}
         </Form>
       </Container>
@@ -191,12 +220,12 @@ const Span = styled.span`
   padding: 0.1rem 0.2rem;
 `;
 
-const Warning = styled.span`
-  display: ${(error) => (error ? "block" : "none")};
-  font-family: "Roboto Mono";
-  color: ${color.warning};
-  font-size:1vw;
-`;
+// const Warning = styled.span`
+//   display: ${(error) => (error ? "block" : "none")};
+//   font-family: "Roboto Mono";
+//   color: ${color.warning};
+//   font-size: 1vw;
+// `;
 
 const ForDonPass = styled.div`
   font-family: "Roboto Mono";

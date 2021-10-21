@@ -1,33 +1,33 @@
 import styled from "styled-components";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { color } from "../config/theme";
 import { useAuth } from "../comp/context/AuthContext";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { dev } from "../config/breakp";
 
 const SignInPage = () => {
   const emailRef = useRef();
   const passRef = useRef();
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState(false);
+  // const [loading, setLoading] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const { currentUser } = useAuth();
 
-  const { signIn } = useAuth();
-  const history = useHistory();
+  // const { signIn } = useAuth();
+  // const history = useHistory();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      setError("");
-      setLoading(true);
-      await signIn(emailRef.current.value, passRef.current.value);
-      history.push(`/Chazyy/`);
-    } catch {
-      setError("Error while signing in.");
-    }
-    setLoading(false);
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     setError("");
+  //     setLoading(true);
+  //     await signIn(emailRef.current.value, passRef.current.value);
+  //     history.push(`/Chazyy/`);
+  //   } catch {
+  //     setError("Error while signing in.");
+  //   }
+  //   setLoading(false);
+  // };
 
   return (
     <Div>
@@ -38,17 +38,27 @@ const SignInPage = () => {
         / <Span>Log in</Span>
       </Heading>
       <Container>
-        <Form onSubmit={handleSubmit}>
-          <Input type="text" placeholder="Email" ref={emailRef} />
-          <Input type="password" placeholder="Password" ref={passRef} />
-          {loading ? <Button>Loading...</Button> : <Button>Sign In</Button>}
+        <Form action="/user/login">
+          <Input
+            type="text"
+            placeholder="Email"
+            ref={emailRef}
+            name="user[username]"
+          />
+          <Input
+            type="password"
+            placeholder="Password"
+            ref={passRef}
+            name="user[password]"
+          />
+          <Button>Sign In</Button>
           <ForDonPass>
             New to Chazyy?{" "}
             <Link to="/SignUp">
               <Text>Click Here!</Text>
             </Link>
           </ForDonPass>
-          <Warning error={error}>{error}</Warning>
+          {/* <Warning error={error}>{error}</Warning> */}
           {/* {error ? <Warning>{error}</Warning> : null} */}
         </Form>
       </Container>
@@ -178,13 +188,13 @@ const Span = styled.span`
   padding: 0.1rem 0.2rem;
 `;
 
-const Warning = styled.span`
-  display: ${(error) => (error ? "block" : "none")};
-  margin: 0;
-  font-family: "Roboto Mono";
-  color: ${color.warning};
-  font-size:1vw;
-`;
+// const Warning = styled.span`
+//   display: ${(error) => (error ? "block" : "none")};
+//   margin: 0;
+//   font-family: "Roboto Mono";
+//   color: ${color.warning};
+//   font-size: 1vw;
+// `;
 
 const ForDonPass = styled.div`
   font-family: "Roboto Mono";

@@ -1,6 +1,8 @@
 // =============== REACT ================
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+// eslint-disable-next-line no-unused-vars
+import { getAuth } from "firebase/auth";
 // =============== REACT ================
 import styled from "styled-components"; //STYLED COMPONENTS
 // =============== IMPORT ================
@@ -16,6 +18,8 @@ import { useParams } from "react-router";
 
 const ChazyyMain = () => {
   const { currentUser } = useAuth();
+
+  useEffect(() => {}, []);
 
   return (
     <Container>

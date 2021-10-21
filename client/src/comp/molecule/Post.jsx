@@ -23,6 +23,7 @@ const Post = () => {
   const [unameErr, setUnameErr] = useState(false);
   //===== DECLARING VARIABLES / STATE =====
 
+  // eslint-disable-next-line no-unused-vars
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -46,22 +47,19 @@ const Post = () => {
     setUsername("");
   };
 
-  useEffect(() => {
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <Container>
-      <form onSubmit={handleSubmit}>
+      <form action="/" method="POST">
         <Block>
-          <Label>@</Label>
-          <Input
-            type="text"
-            required
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
+          {/* <Label>@</Label> */}
+          <Input type="text" name="users[docName]" />
+          <Input type="text" name="users[fullname]" />
+          <Input type="number" name="users[age]" />
+          <Input type="text" name="users[occupation]" />
         </Block>
-        <Block>
+        {/* <Block>
           <TextArea
             type="text"
             rows="5"
@@ -69,12 +67,12 @@ const Post = () => {
             required
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-          />
-        </Block>
+          /> */}
         {/* {unameErr && <Warn>Dont use space in Username!</Warn>}
         {!unameErr && ""}
         {!pending && <Button>Post</Button>}
         {pending && <Button>Adding</Button>} */}
+        <Button>Submit</Button>
       </form>
     </Container>
   );
@@ -98,6 +96,7 @@ const Container = styled.div`
   }
 `;
 
+// eslint-disable-next-line no-unused-vars
 const Label = styled.label`
   margin-right: 0.5rem;
   font-family: "Roboto Mono";
@@ -146,6 +145,7 @@ const Input = styled.input`
 //   }
 // `;
 
+// eslint-disable-next-line no-unused-vars
 const TextArea = styled.input`
   background-color: ${color.erie};
   color: ${color.lightgray};
@@ -163,5 +163,6 @@ const TextArea = styled.input`
 //   color: ${(props) => props.theme.utilCol};
 //   margin-bottom: 0.4rem;
 // `;
+const Button = styled.button``;
 
 export default Post;

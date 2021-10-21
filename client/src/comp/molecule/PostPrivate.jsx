@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 // =============== REACT ================
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 // =============== REACT ================
 import styled from "styled-components"; //STYLED COMPONENTS
 // =============== IMPORT ================
@@ -9,6 +10,8 @@ import { color } from "../../config/theme";
 import { v4 as uuidv4 } from "uuid";
 import { useAuth } from "../context/AuthContext";
 import sent from "../../assest/sent.png";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import axios from "axios";
 // =============== IMPORT ================
 
 const PostPrivate = () => {
@@ -18,6 +21,7 @@ const PostPrivate = () => {
   const [message, setMessage] = useState("");
   const [id, setId] = useState("");
   const { currentUser } = useAuth();
+  const usernameRef = useRef();
 
   // eslint-disable-next-line no-unused-vars
   const [pending, setIsPending] = useState(false);
@@ -25,35 +29,35 @@ const PostPrivate = () => {
   const [unameErr, setUnameErr] = useState(false);
   //===== DECLARING VARIABLES / STATE =====
 
-  const handleSubmit = (e) => {
-    console.log(currentUser.email);
-    e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   console.log(currentUser.email);
+  //   e.preventDefault();
 
-    setId(uuidv4());
-    setUsername(currentUser.email);
+  //   setId(uuidv4());
+  //   setUsername(currentUser.email);
 
-    setIsPending(true);
-    setUnameErr(false);
+  //   setIsPending(true);
+  //   setUnameErr(false);
+  //   const ref = firebase.database().ref("Demo");
 
-    const ref = firebase.database().ref("Demo");
-    const data = {
-      username: currentUser.email,
-      message: message,
-      id: id,
-    };
+  //   const data = {
+  //     username: currentUser.email,
+  //     message: message,
+  //     id: id,
+  //   };
 
-    ref.push(data);
+  //   ref.push(data);
 
-    setIsPending(false);
-    setMessage("");
-    setUsername("");
-  };
+  //   setIsPending(false);
+  //   setMessage("");
+  //   setUsername("");
+  // };
 
   useEffect(() => {}, []);
 
   return (
     <Container>
-      <ChCon onSubmit={handleSubmit}>
+      <ChCon action="" method="POST">
         <TextArea
           type="text"
           rows="1"
@@ -63,7 +67,7 @@ const PostPrivate = () => {
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Send a good words..."
         />
-        <Send src={sent} role="button" onClick={handleSubmit}></Send>
+        {/* <Send src={sent} role="button" onClick={handleSubmit}></Send> */}
         {/* {!unameErr && ""}
         {!pending && <Button>Post</Button>}
         {pending && <Button>Adding...</Button>} */}
@@ -85,6 +89,25 @@ const Container = styled.div`
 
   @media ${dev.tablet} {
     width: 20rem;
+  }
+`;
+
+const Button = styled.button``;
+
+const Input = styled.input`
+  background-color: ${color.erie};
+  font-family: "Roboto Mono";
+  font-weight: 600;
+  border: 0.2rem solid ${color.erie};
+  border-radius: 1rem;
+  transition: 0.3s;
+  font-size: 1rem;
+  padding: 0.35rem;
+  transition: 0.1s;
+  color: ${color.lightgray};
+
+  &:focus {
+    border: 0.15rem solid ${color.lightgray};
   }
 `;
 

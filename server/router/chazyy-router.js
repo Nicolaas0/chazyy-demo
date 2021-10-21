@@ -1,8 +1,10 @@
 import express from "express";
-import { getChazyy } from "../controllers/chazyy-cont.js";
+import { getChazyy, postChazyy } from "../controllers/chazyy-cont.js";
 
 const router = express.Router();
 
-router.get("/", getChazyy);
+router.get("/:username", getChazyy);
+
+router.post("/:username/post", postChazyy);
 
 export default router;

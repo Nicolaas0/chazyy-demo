@@ -3,12 +3,14 @@ import React, { useEffect, useState } from "react";
 // =============== REACT ================
 import styled from "styled-components"; //STYLED COMPONENTS
 // =============== IMPORT ================
-import firebase from "../../Firebase";
+// import firebase from "../../Firebase";
 import { dev } from "../../config/breakp";
 import { color } from "../../config/theme";
 import { v4 as uuidv4 } from "uuid";
+import uniqid from 'uniqid'
 import { useAuth } from "../context/AuthContext";
 import sent from "../../assest/sent.png";
+import { useActv } from "../context/UserContext";
 // =============== IMPORT ================
 
 const PostPrivate = () => {
@@ -18,6 +20,8 @@ const PostPrivate = () => {
   const [message, setMessage] = useState("");
   const [id, setId] = useState("");
   const { currentUser } = useAuth();
+  const { post } = useActv()
+  const uid = uniqid();
 
   // eslint-disable-next-line no-unused-vars
   const [pending, setIsPending] = useState(false);
@@ -35,21 +39,14 @@ const PostPrivate = () => {
     setIsPending(true);
     setUnameErr(false);
 
-    const ref = firebase.database().ref("Demo");
-    const data = {
-      username: currentUser.email,
-      message: message,
-      id: id,
-    };
-
-    ref.push(data);
+    post(currentUser.uid, message, uid);
 
     setIsPending(false);
     setMessage("");
     setUsername("");
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   return (
     <Container>

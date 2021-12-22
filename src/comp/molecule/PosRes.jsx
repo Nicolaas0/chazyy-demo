@@ -20,11 +20,11 @@ const PosRes = (prop) => {
   const { currentUser } = useAuth();
   //===== DECLARING VARIABLES / STATE =====
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   return (
     <Container currentUser={currentUser}>
-      <ScrollableFeed>
+      <ScrollableFeed forceScroll='true'>
         {data.map((d, index) => (
           <DataPrev key={index}>
             <Username>{d.username}</Username>

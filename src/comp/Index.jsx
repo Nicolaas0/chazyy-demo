@@ -6,6 +6,7 @@ import { dev } from "../config/breakp";
 import { color } from "../config/theme";
 
 const Index = () => {
+  console.log(process.env)
   return (
     <Container>
       <Title>Chazyy</Title>

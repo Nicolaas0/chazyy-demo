@@ -30,7 +30,7 @@ const FetchData = (ep) => {
 
   useEffect(() => {
     showData(ep);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ep]);
   return { data, error, loading };
 };

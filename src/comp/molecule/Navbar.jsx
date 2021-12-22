@@ -23,7 +23,7 @@ const Navbar = () => {
     try {
       await logout();
       history.push("/SignUp");
-    } catch (error) {}
+    } catch (error) { }
   };
 
   return (
@@ -32,7 +32,7 @@ const Navbar = () => {
         {currentUser ? (
           <Cu>
             Hi,{" "}
-            <Link to="/Chazyy/Profile/">
+            <Link to="/app/profile">
               <Hl>{currentUser.email}</Hl>
             </Link>
           </Cu>

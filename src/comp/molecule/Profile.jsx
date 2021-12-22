@@ -4,10 +4,12 @@ import styled from "styled-components";
 import { dev } from "../../config/breakp";
 import { color } from "../../config/theme";
 import { useAuth } from "../context/AuthContext";
+import { useHistory } from "react-router-dom";
 
 const Profile = () => {
   const [error, setError] = useState(false);
   const emailRef = useRef();
+  const history = useHistory();
 
   const { currentUser } = useAuth();
   const { updateEmail } = useAuth();
@@ -19,17 +21,17 @@ const Profile = () => {
         setError(true);
       } else {
         await updateEmail(emailRef.current.value);
-        window.location.reload();
+        history.push('/app')
       }
-    } catch (error) {}
+    } catch (error) { }
   };
 
-  useEffect(() => {}, [currentUser.email]);
+  useEffect(() => { }, [currentUser.email]);
   return (
     <Body>
       <Routing>
         Chazyy /{" "}
-        <Link to="/Chazyy/">
+        <Link to="/app">
           <Redir>Main</Redir>
         </Link>{" "}
         / <Span>Profile</Span>

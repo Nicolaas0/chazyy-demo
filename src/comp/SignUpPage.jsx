@@ -5,6 +5,7 @@ import { useAuth } from "../comp/context/AuthContext";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { dev } from "../config/breakp";
+// import uniqid from 'uniqid'
 
 const SignUpPage = () => {
   const emailRef = useRef();
@@ -13,6 +14,7 @@ const SignUpPage = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const history = useHistory();
+  // const uid = uniqid()
 
   const { signUp } = useAuth();
 
@@ -26,7 +28,7 @@ const SignUpPage = () => {
       setError("");
       setLoading(true);
       await signUp(emailRef.current.value, passRef.current.value);
-      history.push("/SignIn");
+      history.push("/signin");
     } catch {
       setError("Error while signing up.");
     }
@@ -54,7 +56,7 @@ const SignUpPage = () => {
           {loading ? <Button>Loading</Button> : <Button>Sign Up</Button>}
           <ForDonPass>
             Already have an account?
-            <Link to="/SignIn">
+            <Link to="/signin">
               <Text>Click Here!</Text>
             </Link>
           </ForDonPass>

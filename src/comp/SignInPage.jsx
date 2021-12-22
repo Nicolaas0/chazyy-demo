@@ -22,7 +22,7 @@ const SignInPage = () => {
       setError("");
       setLoading(true);
       await signIn(emailRef.current.value, passRef.current.value);
-      history.push(`/Chazyy/`);
+      history.push(`/app`);
     } catch {
       setError("Error while signing in.");
     }
@@ -41,10 +41,10 @@ const SignInPage = () => {
         <Form onSubmit={handleSubmit}>
           <Input type="text" placeholder="Email" ref={emailRef} />
           <Input type="password" placeholder="Password" ref={passRef} />
-          {loading ? <Button>Loading...</Button> : <Button>Sign In</Button>}
+          {loading ? <Button>Loading</Button> : <Button>Sign In</Button>}
           <ForDonPass>
             New to Chazyy?{" "}
-            <Link to="/SignUp">
+            <Link to="/signup">
               <Text>Click Here!</Text>
             </Link>
           </ForDonPass>

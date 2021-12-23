@@ -11,7 +11,6 @@ const SignInPage = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   // eslint-disable-next-line no-unused-vars
-  const { currentUser } = useAuth();
 
   const { signIn } = useAuth();
   const history = useHistory();
@@ -49,7 +48,6 @@ const SignInPage = () => {
             </Link>
           </ForDonPass>
           <Warning error={error}>{error}</Warning>
-          {/* {error ? <Warning>{error}</Warning> : null} */}
         </Form>
       </Container>
       <TipCon>

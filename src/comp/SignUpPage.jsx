@@ -61,7 +61,6 @@ const SignUpPage = () => {
             </Link>
           </ForDonPass>
           <Warning error={error}>{error}</Warning>
-          {/* {error ? <Warning>{error}</Warning> : null} */}
         </Form>
       </Container>
       <TipCon>

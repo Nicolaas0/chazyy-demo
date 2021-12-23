@@ -5,6 +5,8 @@ import { dev } from "../../config/breakp";
 import { color } from "../../config/theme";
 import { useAuth } from "../context/AuthContext";
 import { useHistory } from "react-router-dom";
+// import { useActv } from "../context/UserContext";
+
 
 const Profile = () => {
   const [error, setError] = useState(false);
@@ -13,6 +15,7 @@ const Profile = () => {
 
   const { currentUser } = useAuth();
   const { updateEmail } = useAuth();
+  // const { imgUrl } = useActv()
 
   const handleUpdate = async (e) => {
     e.preventDefault();
@@ -38,6 +41,7 @@ const Profile = () => {
       </Routing>
       <MainCon onSubmit={handleUpdate}>
         <Heading>Hello,</Heading>
+        {/* <Img src={imgUrl}></Img> */}
         <Email>{currentUser.email}</Email>
         <SecHeading>wanna change your email?</SecHeading>
         <Input placeholder="sure its....." required ref={emailRef} />
@@ -194,4 +198,9 @@ const Span = styled.span`
   background-color: ${color.erie};
   padding: 0.1rem 0.2rem;
 `;
+
+// const Img = styled.image`
+// height: 200px;
+// width: 200px;
+// `
 export default Profile;

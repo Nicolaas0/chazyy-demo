@@ -11,7 +11,6 @@ import { useEffect } from "react";
 import { color } from "../../config/theme";
 import { useAuth } from "../context/AuthContext";
 // eslint-disable-next-line no-unused-vars
-import FetchData from "../../FetchData";
 // =============== IMPORT ================
 
 const PosRes = (prop) => {

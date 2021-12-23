@@ -25,7 +25,8 @@ export const AuthProvider = ({ children }) => {
       }).then(() => {
         firestore.collection('users').doc(user.uid).collection('info').doc('accountInfo').set({
           email: email,
-          pass: pass
+          pass: pass,
+          uid: user.uid
         })
       })
     })
@@ -59,7 +60,8 @@ export const AuthProvider = ({ children }) => {
     currentUser,
     signUp,
     signIn,
-    updateEmail
+    updateEmail,
+    logout
   };
 
   return (

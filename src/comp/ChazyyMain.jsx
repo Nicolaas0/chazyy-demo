@@ -8,14 +8,10 @@ import Navbar from "./molecule/Navbar";
 import Result from "./molecule/Result";
 import Post from "./molecule/Post";
 import Footer from "./molecule/Footer";
-import { useAuth } from "./context/AuthContext";
-import PostPrivate from "./molecule/PostPrivate";
 // eslint-disable-next-line no-unused-vars
-import { useParams } from "react-router";
 // =============== IMPORT ================
 
 const ChazyyMain = () => {
-  const { currentUser } = useAuth();
 
   return (
     <Container>
@@ -28,7 +24,7 @@ const ChazyyMain = () => {
       {/* Home Area */}
       <Main>
         <Result />
-        {currentUser ? <PostPrivate /> : <Post />}
+        <Post />
       </Main>
       {/* End of Home area */}
 

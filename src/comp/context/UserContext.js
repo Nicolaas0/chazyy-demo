@@ -1,15 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect} from "react";
 import firebase from "../../Firebase";
 
 const ActivityContext = React.createContext();
 const firestore = firebase.firestore();
+// const storage = firebase.storage();
 
 export const useActv = () => {
     return useContext(ActivityContext);
 };
 
 export const ActivityProvider = ({ children }) => {
-
+    // const [imgUrl, setImgUrl] = useState()
     const post = (email, message, id) => {
         const ref = firebase.database().ref(`Demo/${id}`);
         const data = {
@@ -24,6 +25,19 @@ export const ActivityProvider = ({ children }) => {
             })
         })
     }
+
+    // const uploadImage = () => {
+
+    // }
+
+    // const getImage = () => {
+    //     storage.ref().child('images/iu.jfif').getDownloadURL().then((url) => {
+    //         setImgUrl(url)
+    //     })
+    // }
+
+    useEffect(() => {
+    }, [])
 
     const value = {
         post

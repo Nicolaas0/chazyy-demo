@@ -7,17 +7,15 @@ import styled from "styled-components"; //STYLED COMPONENTS
 import { dev } from "../../config/breakp";
 import { color } from "../../config/theme";
 import uniqid from 'uniqid'
-import { useAuth } from "../context/AuthContext";
+import { useUser } from "../context/UserContext";
 import sent from "../../assest/sent.png";
-import { useActv } from "../context/UserContext";
 // =============== IMPORT ================
 
 const PostPrivate = () => {
   //===== DECLARING VARIABLES / STATE =====
   // eslint-disable-next-line no-unused-vars
   const [message, setMessage] = useState("");
-  const { currentUser } = useAuth();
-  const { post } = useActv()
+  const { currentUser, post } = useUser();
   const uid = uniqid();
 
   //===== DECLARING VARIABLES / STATE =====

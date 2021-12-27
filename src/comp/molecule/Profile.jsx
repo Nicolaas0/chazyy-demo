@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { dev } from "../../config/breakp";
 import { color } from "../../config/theme";
-import { useAuth } from "../context/AuthContext";
 import { useHistory } from "react-router-dom";
-// import { useActv } from "../context/UserContext";
+import { useUser } from "../context/UserContext"
 
 
 const Profile = () => {
@@ -13,9 +12,7 @@ const Profile = () => {
   const emailRef = useRef();
   const history = useHistory();
 
-  const { currentUser } = useAuth();
-  const { updateEmail } = useAuth();
-  // const { imgUrl } = useActv()
+  const { currentUser, updateEmail } = useUser();
 
   const handleUpdate = async (e) => {
     e.preventDefault();
@@ -41,7 +38,7 @@ const Profile = () => {
       </Routing>
       <MainCon onSubmit={handleUpdate}>
         <Heading>Hello,</Heading>
-        {/* <Img src={imgUrl}></Img> */}
+        <Img src={currentUser.photoURL}></Img>
         <Email>{currentUser.email}</Email>
         <SecHeading>wanna change your email?</SecHeading>
         <Input placeholder="sure its....." required ref={emailRef} />
@@ -199,8 +196,8 @@ const Span = styled.span`
   padding: 0.1rem 0.2rem;
 `;
 
-// const Img = styled.image`
-// height: 200px;
-// width: 200px;
-// `
+const Img = styled.image`
+height: 200px;
+width: 200px;
+`
 export default Profile;

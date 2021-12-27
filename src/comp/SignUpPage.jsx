@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useRef, useState } from "react";
 import { color } from "../config/theme";
-import { useAuth } from "../comp/context/AuthContext";
+import { useUser } from "./context/UserContext";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { dev } from "../config/breakp";
@@ -16,7 +16,7 @@ const SignUpPage = () => {
   const history = useHistory();
   // const uid = uniqid()
 
-  const { signUp } = useAuth();
+  const { signUp } = useUser();
 
   const handleSubmit = async (e) => {
     e.preventDefault();

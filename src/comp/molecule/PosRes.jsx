@@ -9,14 +9,14 @@ import ScrollableFeed from "react-scrollable-feed";
 import { dev } from "../../config/breakp";
 import { useEffect } from "react";
 import { color } from "../../config/theme";
-import { useAuth } from "../context/AuthContext";
+import { useUser } from "../context/UserContext";
 // eslint-disable-next-line no-unused-vars
 // =============== IMPORT ================
 
 const PosRes = (prop) => {
   //===== DECLARING VARIABLES / STATE =====
   const data = prop.val;
-  const { currentUser } = useAuth();
+  const { currentUser } = useUser();
   //===== DECLARING VARIABLES / STATE =====
 
   useEffect(() => { }, []);

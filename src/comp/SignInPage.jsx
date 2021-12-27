@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useRef, useState } from "react";
 import { color } from "../config/theme";
-import { useAuth } from "../comp/context/AuthContext";
+import { useUser } from "./context/UserContext";
 import { Link, useHistory } from "react-router-dom";
 import { dev } from "../config/breakp";
 
@@ -12,7 +12,7 @@ const SignInPage = () => {
   const [loading, setLoading] = useState(false);
   // eslint-disable-next-line no-unused-vars
 
-  const { signIn } = useAuth();
+  const { signIn } = useUser();
   const history = useHistory();
 
   const handleSubmit = async (e) => {

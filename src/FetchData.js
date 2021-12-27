@@ -21,9 +21,9 @@ const FetchData = (ep) => {
         for (let i = 0; i < name.length; i++) {
           const id = name[i];
           datArr.push(res[id]);
-        } // add all the id to the array first until it finished the process, and then set the data equals to datArr
-        setData(datArr); // if we didnt seperate the process it will only show 1 data per render
-        setLoading(false); // it took me 4 hours to realized it :(
+        }
+        setData(datArr);
+        setLoading(false);
       }
     });
   };

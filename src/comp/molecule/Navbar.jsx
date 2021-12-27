@@ -9,13 +9,13 @@ import menubar from "../../assest/menu.png";
 import { dev } from "../../config/breakp";
 import { color } from "../../config/theme";
 import { Link, useHistory } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useUser } from "../context/UserContext";
 // =============== IMPORT ================
 
 const Navbar = () => {
   //===== DECLARING VARIABLES / STATE =====
   const [isOpen, setIsOpen] = useState(false);
-  const { currentUser, logout } = useAuth();
+  const { currentUser, logout } = useUser();
   const history = useHistory();
   //===== DECLARING VARIABLES / STATE ====
 

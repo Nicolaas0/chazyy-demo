@@ -1,15 +1,13 @@
 import React, { useContext, useState, useEffect } from "react";
 import firebase from "../../Firebase";
 import dayjs from "dayjs";
+import uniqid from 'uniqid'
 
 const UserContext = React.createContext();
 const auth = firebase.auth();
 const firestore = firebase.firestore();
-// const storageRef = firebase.storage().ref();
 const date = dayjs().format("DD/MM/YYYY HH:mm:ss");
-// let metadata = {
-//   contentType: 'image/png',
-// };
+const uid = uniqid();
 
 export const useUser = () => {
   return useContext(UserContext);
@@ -19,7 +17,7 @@ export const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const signUp = async (email, pass) => {
+  const signUp = async (email, pass, username) => {
 
     await auth.createUserWithEmailAndPassword(email, pass)
 
@@ -28,9 +26,13 @@ export const UserProvider = ({ children }) => {
         dateCreated: date,
       })
       firestore.collection('users').doc(user.uid).collection('info').doc('accountInfo').set({
+        username: username,
         email: email,
         pass: pass,
         uid: user.uid,
+      })
+      user.updateProfile({
+        displayName: username
       })
     })
   };
@@ -43,62 +45,33 @@ export const UserProvider = ({ children }) => {
     return auth.currentUser.updateEmail(email);
   };
 
+  const updateUsername = (username) => {
+    return auth.currentUser.updateProfile({
+      displayName: username
+    })
+  };
+
   // eslint-disable-next-line no-unused-vars
   const logout = () => {
     return auth.signOut()
   }
 
-  const post = (email, message, id) => {
-    const ref = firebase.database().ref(`Demo/${id}`);
-    const data = {
-      username: email,
-      message: message,
-      id: id,
-    };
-    ref.set(data).then(() => {
-      firestore.collection('users').doc(email).collection('post').doc(id).set({
-        id: id,
+  const post = (message) => {
+    auth.onAuthStateChanged((user) => {
+      const ref = firebase.database().ref(`Demo/${uid}`);
+      const data = {
+        username: user.displayName ? user.displayName : user.email,
         message: message,
+        id: uid,
+      };
+      ref.set(data).then(() => {
+        firestore.collection('users').doc(user.uid).collection('post').doc(uid).set({
+          id: uid,
+          message: message,
+        })
       })
     })
   }
-
-  // const changeImage = (uid, file) => {
-  //   storageRef.put(file).then((snapshot) => {
-  //     console.log('You have upload a file', snapshot)
-  //   })
-  //   storageRef.child(`images/${uid}/profile`).listAll().then((res) => {
-  //     res.items.forEach((itemRef) => {
-  //       firestore.collection('users').doc(uid).collection('info').doc('accountInfo').set({
-  //         photoURL: itemRef.fullPath
-  //       })
-  //       auth.onAuthStateChanged(user => {
-  //         user.updateProfile({
-  //           photoURL: itemRef.fullPath
-  //         })
-  //       })
-  //     })
-  //   })
-  // }
-
-  // const changeImage = (file) => {
-  //   storageRef.put(file).then((snapshot) => {
-  //     console.log('You have upload a file', snapshot)
-  //   })
-  //   auth.onAuthStateChanged(user => {
-  //     storageRef.child(`images/${user.uid}/profile`).listAll().then((res) => {
-  //       res.items.forEach((itemRef) => {
-  //         firestore.collection('users').doc(user.uid).collection('info').doc('accountInfo').set({
-  //           photoURL: itemRef.fullPath
-  //         }).then(() => {
-  //           user.updateProfile({
-  //             photoURL: itemRef.fullPath
-  //           })
-  //         })
-  //       })
-  //     })
-  //   })
-  // }
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -118,6 +91,7 @@ export const UserProvider = ({ children }) => {
     updateEmail,
     logout,
     post,
+    updateUsername
   };
 
   return (

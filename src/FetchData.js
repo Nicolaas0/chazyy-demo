@@ -23,6 +23,7 @@ const FetchData = (ep) => {
           datArr.push(res[id]);
         }
         setData(datArr);
+        console.log(datArr)
         setLoading(false);
       }
     });

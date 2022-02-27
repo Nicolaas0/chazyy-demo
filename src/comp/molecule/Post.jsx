@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // =============== REACT ================
 import React, { useEffect, useState } from "react";
 // =============== REACT ================
@@ -15,6 +16,7 @@ const PostPrivate = () => {
   //===== DECLARING VARIABLES / STATE =====
   // eslint-disable-next-line no-unused-vars
   const [message, setMessage] = useState("");
+  // eslint-disable-next-line no-unused-vars
   const { currentUser, post } = useUser();
   const uid = uniqid();
 
@@ -23,7 +25,7 @@ const PostPrivate = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    post(currentUser.email, message, uid);
+    post(message);
     setMessage("");
   };
 

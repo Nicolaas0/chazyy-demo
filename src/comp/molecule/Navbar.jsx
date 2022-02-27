@@ -14,8 +14,10 @@ import { useUser } from "../context/UserContext";
 
 const Navbar = () => {
   //===== DECLARING VARIABLES / STATE =====
-  const [isOpen, setIsOpen] = useState(false);
   const { currentUser, logout } = useUser();
+  const [isOpen, setIsOpen] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [uName, setUName] = useState(currentUser.displayName)
   const history = useHistory();
   //===== DECLARING VARIABLES / STATE ====
 
@@ -26,6 +28,10 @@ const Navbar = () => {
     } catch (error) { }
   };
 
+  useEffect(() => {
+    console.log(uName)
+  })
+
   return (
     <Nav>
       <Responsive>
@@ -33,7 +39,7 @@ const Navbar = () => {
           <Cu>
             Hi,{" "}
             <Link to="/app/profile">
-              <Hl>{currentUser.email}</Hl>
+              <Hl>{uName ? uName : currentUser.email}</Hl>
             </Link>
           </Cu>
         ) : (

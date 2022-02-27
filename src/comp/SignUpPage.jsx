@@ -9,6 +9,7 @@ import { dev } from "../config/breakp";
 
 const SignUpPage = () => {
   const emailRef = useRef();
+  const usernameRef = useRef();
   const passRef = useRef();
   const repassRef = useRef();
   const [error, setError] = useState(false);
@@ -27,7 +28,7 @@ const SignUpPage = () => {
     try {
       setError("");
       setLoading(true);
-      await signUp(emailRef.current.value, passRef.current.value);
+      await signUp(emailRef.current.value, passRef.current.value, usernameRef.current.value);
       history.push("/signin");
     } catch {
       setError("Error while signing up.");
@@ -45,14 +46,10 @@ const SignUpPage = () => {
       </Heading>
       <Container>
         <Form onSubmit={handleSubmit}>
+          <Input type="text" placeholder="Username" ref={usernameRef} />
           <Input type="text" placeholder="Email" ref={emailRef} />
           <Input type="password" placeholder="Password" ref={passRef} />
-          <Input
-            className="repass"
-            type="password"
-            placeholder="Re-Password"
-            ref={repassRef}
-          />
+          <Input className="repass" type="password" placeholder="Re-Password" ref={repassRef} />
           {loading ? <Button>Loading</Button> : <Button>Sign Up</Button>}
           <ForDonPass>
             Already have an account?

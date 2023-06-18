@@ -7,7 +7,6 @@ const UserContext = React.createContext();
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 const date = dayjs().format("DD/MM/YYYY HH:mm:ss");
-const uid = uniqid();
 
 export const useUser = () => {
   return useContext(UserContext);
@@ -58,6 +57,7 @@ export const UserProvider = ({ children }) => {
 
   const post = (message) => {
     auth.onAuthStateChanged((user) => {
+      const uid = uniqid();
       const ref = firebase.database().ref(`Demo/${uid}`);
       const data = {
         username: user.displayName ? user.displayName : user.email,

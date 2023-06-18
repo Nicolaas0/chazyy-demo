@@ -42,7 +42,6 @@ const Profile = () => {
       uname.style.borderColor = "#121212";
     } else {
       if (value === currentUser.displayName) {
-        uname.style.borderColor = "orange";
         setError((prev) => ({
           ...prev,
           username: {
@@ -61,7 +60,6 @@ const Profile = () => {
             },
           }));
         } else {
-          uname.style.borderColor = "green";
           setError((prev) => ({
             ...prev,
             username: {
@@ -91,7 +89,6 @@ const Profile = () => {
           },
         }));
       } else {
-        email.style.borderColor = "green";
         setError((prev) => ({
           ...prev,
           email: {
